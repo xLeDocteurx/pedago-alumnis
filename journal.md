@@ -8,8 +8,14 @@ Journal de bord :
     Problème : Rien de spécial pour le moment.
 
 13/11/2018:
+    Produit : planning poker, modélisation de fonctionnalités supplémentaires
+    Prévu : début de la création des entités
+    Problème : 
 
 14/11/2018:
+    Produit : création de certaines entités. ( migrations et models ), création d'un middleware pour la gestion  des roles.
+    Prévu : Continuer la création des migration et des models. Inch Allah, faire un controller ou deux.
+    Problème : Les middleware sont une nouveauté, cela a pris du temps.
 
 15/11/2018:
 

@@ -25,4 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function goodboy()
+    {
+        return view('goodboy');
+    }
+
+    public function badboy()
+    {
+        return view('badboy');
+    }
 }
