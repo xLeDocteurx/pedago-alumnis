@@ -15,7 +15,11 @@ class CheckRole
      */
     public function handle($request, Closure $next, $role)
     {
-        if (! $request->user->hasRole($role)) {
+
+        $filtered = array_search($request->user()->roles(), $role);
+        // dd($request->user()->roles());
+
+        if (!$filtered) {
             return route('badboy');
         }
         return $next($request);
