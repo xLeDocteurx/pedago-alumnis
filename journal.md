@@ -18,6 +18,9 @@ Journal de bord :
     Problème : Les middleware sont une nouveauté, cela a pris du temps.
 
 15/11/2018:
+    Produit :
+    Prévu :
+    Problème :
 
 16/11/2018:
 

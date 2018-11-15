@@ -13,10 +13,10 @@ class CreateUserformationTable extends Migration
      */
     public function up()
     {
-        Schema::create('userformation', function (Blueprint $table) {
+        Schema::create('formation_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('userid');
-            $table->integer('formationid');
+            $table->integer('user_id');
+            $table->integer('formation_id');
             $table->timestamps();
         });
     }

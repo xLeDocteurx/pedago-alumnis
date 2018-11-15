@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public function jobtags(){
-        return $this->hasMany('App\Jobtag');
+    public function jobs(){
+        return $this->hasMany('App\Job');
     }
-    public function usertags(){
-        return $this->hasMany('App\usertag');
+    public function users(){
+        return $this->hasMany('App\User');
     }
+    public function tagfamily(){
+        return $this->belongsTo('App\Tagfamily');
+    }
+    
 }

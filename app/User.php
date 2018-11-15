@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
     
+    public function events(){
+        return $this->belongsToMany('App\Event');
+    }
+
+
     public function messages()
     {
         return $this->hasMany('App\Message');
@@ -42,4 +47,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Regions');
     }
+
+    // contact section
+    public function relate(){
+        return $this->hasMany('App\User');
+    }
+    public function isRelated(){
+        return $this->belongsToMany('App\User');
+    }
+    // contact end
 }

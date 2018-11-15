@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJobtagTable extends Migration
+class CreateUsertagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateJobtagTable extends Migration
      */
     public function up()
     {
-        Schema::create('jobtag', function (Blueprint $table) {
+        Schema::create('user_tag', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idtagfamily');
-            $table->string('name');
+            $table->integer('tag_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateJobtagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobtag');
+        Schema::dropIfExists('usertag');
     }
 }

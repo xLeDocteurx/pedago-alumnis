@@ -18,6 +18,7 @@ class CreateJobsTable extends Migration
             $table->string('company');
             $table->string('title');
             $table->text('content');
+            $table->integer('author_id');
             $table->date('outdated_at');
             $table->date('refreshed_at');
             $table->timestamps();
