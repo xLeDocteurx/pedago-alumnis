@@ -14,7 +14,7 @@ Journal de bord :
 
 14/11/2018:
     Produit : création de certaines entités. ( migrations et models ), création d'un middleware pour la gestion  des roles.
-    Prévu : Continuer la création des migration et des models. Inch Allah, faire un controller ou deux.
+    Prévu : Continuer la création des migration et des models. Inch Allah, faire un Controller ou deux.
     Problème : Les middleware sont une nouveauté, cela a pris du temps.
 
 15/11/2018:

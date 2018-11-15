@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'nom', 'prenom', 'email', 'password',
+        'name', 'nom', 'prenom', 'region_id', 'email', 'password',
     ];
 
     /**
@@ -36,6 +36,14 @@ class User extends Authenticatable
     public function events(){
         return $this->belongsToMany('App\Event');
     }
+    
+    public function myEvents(){
+        return $this->hasMany('App\Event');
+    }
+
+    public function myJobs(){
+        return $this->hasMany('App\Jobs');
+    }
 
 
     public function messages()
@@ -48,11 +56,19 @@ class User extends Authenticatable
         return $this->belongsTo('App\Regions');
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tags');
+    }
+
     // contact section
-    public function relate(){
+    public function relate()
+    {
         return $this->hasMany('App\User');
     }
-    public function isRelated(){
+
+    public function isRelated()
+    {
         return $this->belongsToMany('App\User');
     }
     // contact end
