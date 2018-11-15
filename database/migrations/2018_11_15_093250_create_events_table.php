@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserroleTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateUserroleTable extends Migration
      */
     public function up()
     {
-        Schema::create('userrole', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('iduser');
-            $table->integer('idrole');
+            $table->string('title');
+            $table->text('content');
+            $table->string('location');
+            $table->date('date');
+            $table->integer('author_id');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateUserroleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userrole');
+        Schema::dropIfExists('events');
     }
 }

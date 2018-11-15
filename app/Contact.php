@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    public function user(){
+    public function relating(){
         return $this->belongsTo('App\User');
     }
-    public function favorite(){
-        return $this->hasMany('App\Favorite');
+    public function related(){
+        return $this->hasMany('App\User');
     }
 }

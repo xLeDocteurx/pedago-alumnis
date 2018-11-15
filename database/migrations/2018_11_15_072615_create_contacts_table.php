@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsertagTable extends Migration
+class CreateContactTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateUsertagTable extends Migration
      */
     public function up()
     {
-        Schema::create('usertag', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('idtag');
-            $table->integer('iduser');
+            $table->integer('relating_id');
+            $table->integer('related_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateUsertagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usertag');
+        Schema::dropIfExists('contact');
     }
 }

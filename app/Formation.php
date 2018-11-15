@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Formation extends Model
 {
-    public function userformations(){
-        return $this->hasMany('App\Userformation');
+    public function users(){
+        return $this->hasMany('App\User');
     }
 }
