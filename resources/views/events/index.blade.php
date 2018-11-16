@@ -5,9 +5,9 @@
     <div class="container-fluid">
         
     <div class="row">
-        <div class="mx-auto my-auto">{{ $events->links() }}</div>
+        <div class="mx-auto">{{ $events->links() }}</div>
         <div class="mx-auto">
-        <a href="{{ route('events_create') }}"><i class="fas fa-plus-circle fa-4x"></i></a>    
+        <a class="btn btn-primary" href="{{ route('events_create') }}" title="{{ __('Add an event') }}">Add an event <i class="fas fa-plus-circle"></i></a>    
         </div>
     </div>
 
@@ -33,13 +33,12 @@
         @endforeach
     </div>
 
+
     <div class="row">
-        <div class="mx-auto my-auto">{{ $events->links() }}</div>
+        <div class="mx-auto">{{ $events->links() }}</div>
         <div class="mx-auto">
-        <a href="{{ route('events_create') }}"><i class="fas fa-plus-circle fa-4x"></i></a>    
+            <a class="btn btn-primary" href="{{ route('events_create') }}" title="{{ __('Add an event') }}">Add an event <i class="fas fa-plus-circle"></i></a>    
         </div>
-    </div>
-    
     </div>
 
 @endsection

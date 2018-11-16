@@ -25,6 +25,15 @@ class EventsController extends Controller
         return view('events.show', compact('event'));
     }
 
+    public function subscribe(Request $request, $id)
+    {
+        $event = Event::find($id);
+        dd($event->subscribers());
+        $event->subscribers()->attach($request->user()->id);
+
+        return redirect()->route('events_subscribe', $id);
+    }
+
     public function create(Request $request)
     {
         $today = date('Y-m-d');
@@ -46,8 +55,7 @@ class EventsController extends Controller
         return redirect()->route('events');
     }
 
-    public function delete(Request $request){
-        $id = $request->id;
+    public function delete(Request $request, $id){
         Event::find($id)->delete();
 
         return redirect()->route('events');
