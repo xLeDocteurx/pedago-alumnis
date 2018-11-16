@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/goodboy', 'HomeController@goodboy')->name('goodboy')->middleware('role:formateur');
 Route::get('/badboy', 'HomeController@badboy')->name('badboy');
+
+Route::get('/contacts', 'ContactsController@index')->name('contacts');
