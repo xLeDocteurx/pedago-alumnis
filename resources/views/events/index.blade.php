@@ -7,7 +7,7 @@
     <div class="row">
         <div class="mx-auto">{{ $events->links() }}</div>
         <div class="mx-auto">
-        <a class="btn btn-primary" href="{{ route('events_create') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
+            <a class="btn btn-primary" href="{{ route('events_create') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
         </div>
     </div>
 
@@ -15,16 +15,17 @@
         @foreach($events as $event)
         
         <div class="col-md-8">
-            <div class="card my-4">
+            <div class="card my-3">
+                    <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->title}}">
                 <div class="card-header">
-                        <a href="{{ route('events_show', $event->id) }}" title="{{$event->title}}"><h3 class="mt-4 d-inline">{{$event->title}}</h3></a>
-                    
-                        <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
+                        <h3 class="mt-4 d-inline">{{$event->title}}</h3>
+                    <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
                 </div>
+                    </a>
                 <div class="card-body">
                 <p class="my-4">{{$event->content}}</p> 
                 
-                <p class="text-right">Créé par {{$event->author->name}}</p>
+                <p class="text-right">Créé par <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">{{$event->author->name}}</a></p>
                 
                 </div>
             </div>

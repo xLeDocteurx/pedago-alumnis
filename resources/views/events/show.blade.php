@@ -19,7 +19,7 @@
                     </div>
                     <div class="card-body">
                         <p class="my-4">{{$event->content}}</p> 
-                        <p>Créé par {{$event->author->name}}</p>
+                        <p class="text-right">Créé par <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">{{$event->author->name}}</a></p>
                     </div>
                     <div class="card-action text-right">
                         <!-- Si déja intéresser afficher un bouton pour défaire la relation -->

@@ -22,6 +22,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/goodboy', 'HomeController@goodboy')->name('goodboy')->middleware('role:formateur');
 Route::get('/badboy', 'HomeController@badboy')->name('badboy');
 
+Route::get('/users', 'UsersController@index')->name('users');
+Route::get('/users/{id}', 'UsersController@show')->name('users_show');
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
 
 //events routes
