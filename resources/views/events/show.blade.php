@@ -12,7 +12,7 @@
                             @if ($event->author->id === Auth::user()->id)
                                 <a class="btn btn-danger" href="{{ route('events_delete', $event->id) }}" title="{{ __('Supprimer l\'évènement') }}">Supprimer l'évènement <i class="fas fa-trash"></i></a>
                             @endif
-                            <h3 class="mt-4"> {{$event->title}}</h3>
+                            <h3 class="mt-3"> {{$event->title}}</h3>
                         
                             <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
 

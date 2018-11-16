@@ -9,11 +9,15 @@
             <div class="col-md-8">
                 <div class="card my-4">
                     <div class="card-header">
-                            <h3 class="mt-4"> {{$user->name}}</h3>
+                            <h3 class="mt-2"> {{$user->name}}</h3>
                             <!-- <p class="text-right my-auto"> A {{$user->location}} le {{$user->date}}</p> -->
                     </div>
                     <div class="card-body">
-                        <!-- <p class="my-4">{{$user->content}}</p>  -->
+
+                        @foreach($user->roles as $role)
+                            <p class="my-4">{{$role->name}}</p> 
+                        @endforeach
+
                     </div>
                     <div class="card-action text-right">
                         <!--  Ajouter à sa liste de contacts -->
