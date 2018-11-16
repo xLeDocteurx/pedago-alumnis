@@ -28,4 +28,4 @@ Route::get('/contacts', 'ContactsController@index')->name('contacts');
 Route::get('/events', 'EventsController@index')->name('events');
 
 Route::get('/events/create', 'EventsController@create')->name('events_create');
-Route::get('/events/store', 'EventsController@store')->name('events_store');
+Route::post('/events/store', 'EventsController@store')->name('events_store');

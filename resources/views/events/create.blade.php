@@ -10,18 +10,18 @@
                 <div class="card-header">{{ __('Nouvelle annonce') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events_create') }}">
+                    <form method="POST" action="{{ route('events_store') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nom" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nom" type="text" class="form-control{{ $errors->has('nom') ? ' is-invalid' : '' }}" name="nom" value="{{ old('nom') }}" required autofocus>
+                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required autofocus>
 
-                                @if ($errors->has('nom'))
+                                @if ($errors->has('title'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('nom') }}</strong>
+                                        <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                 @endif
                             </div>
