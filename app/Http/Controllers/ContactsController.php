@@ -17,7 +17,7 @@ class ContactsController extends Controller
     public function index (Request $request) {
         
         $user_id = $request->user()->id;
-        // $contacts = Contact::where(['relating_id' => $user_id]);
+
         $contacts = Contact::all();
         // $contacts = $request->user()->relate();
 

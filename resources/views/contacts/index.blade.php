@@ -5,9 +5,9 @@
 <div class="container-fluid">
     <div class="row">
         
-        <div class="col-md-2 bg-dark text-light">
+        <div class="col-md-2">
             @foreach ($contacts as $contact)
-                <div class="my-2 bg-light text-dark">
+                <div class="my-2">
                     {{ $contact->relating }}
                 </div>
             @endforeach
