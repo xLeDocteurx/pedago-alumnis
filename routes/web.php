@@ -26,3 +26,6 @@ Route::get('/contacts', 'ContactsController@index')->name('contacts');
 
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
+
+Route::get('/events/create', 'EventsController@create')->name('events_create');
+Route::get('/events/store', 'EventsController@store')->name('events_store');
