@@ -45,4 +45,11 @@ class EventsController extends Controller
         // Rediriger vers  la  view "show" dès qu'elle sera disponible
         return redirect()->route('events');
     }
+
+    public function delete(Request $request){
+        $id = $request->id;
+        Event::find($id)->delete();
+
+        return redirect()->route('events');
+    }
 }

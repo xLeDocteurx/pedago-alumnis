@@ -23,7 +23,14 @@
         </div>
         
     </div>
-
+    <form action="{{ route('events_delete') }}" method="post">
+    @csrf
+    <input type="hidden" value="{{$event->id}}" name="id">
+    <button type="submit">
+        <i class="fas fa-trash fa-4x"></i>
+    </button>
+    </form>
+    
     
     </div>
 

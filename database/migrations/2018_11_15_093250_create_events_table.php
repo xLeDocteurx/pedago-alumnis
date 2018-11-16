@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('location');
             $table->date('date');
             $table->integer('author_id');
+            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }
