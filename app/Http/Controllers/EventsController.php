@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Storage;
 class EventsController extends Controller
 {
     public function index(Request $request){
-        $events = Event::all();
-        
+        $events = Event::with('author')->get();
+        // $authors = User::all();
+
         return view('events.index', compact('events'));
     }
 }
