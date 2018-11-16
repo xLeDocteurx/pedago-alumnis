@@ -28,6 +28,9 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         
+        dd($request);
+
+        // Rediriger vers  la  view "show" dès qu'elle sera disponible
         return redirect()->route('events');
     }
 }
