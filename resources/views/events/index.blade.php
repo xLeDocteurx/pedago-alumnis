@@ -4,6 +4,10 @@
 
     <div class="container-fluid">
         
+    <div class="row">
+        <div class="mx-auto">{{ $events->links() }}</div>
+    </div>
+
     <div class="row justify-content-center">
         @foreach($events as $event)
         <div class="col-md-8">
@@ -16,8 +20,10 @@
         </div>
         @endforeach
     </div>
-        
 
+    <div class="row">
+        <div class="mx-auto">{{ $events->links() }}</div>
+    </div>
     
     </div>
 

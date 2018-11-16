@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class EventsController extends Controller
 {
     public function index(Request $request){
-        $events = Event::all();
+        $events = Event::orderBy('id', 'desc')->paginate(5);
         
         return view('events.index', compact('events'));
     }

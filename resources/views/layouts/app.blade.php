@@ -57,10 +57,11 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contacts') }}">{{ __('Contacts') }}</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('events') }}">{{ __('Evenements') }}</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('contacts') }}">{{ __('Contacts') }}</a>
                             </li>
                 
                             <li class="nav-item dropdown">
