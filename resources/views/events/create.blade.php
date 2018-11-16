@@ -14,7 +14,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Titre') }}</label>
 
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required autofocus>
@@ -26,6 +26,50 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Contenu') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="content" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" value="{{ old('content') }}" required autofocus></textarea>
+
+                                @if ($errors->has('content'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('content') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Ville') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ old('location') }}" required autofocus>
+
+                                @if ($errors->has('location'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('location') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date de l\'evenement') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="date" type="date" min="{{$today}}" max="{{$nextYear}}" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required autofocus>
+
+                                @if ($errors->has('date'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('date') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        
 
                         <!-- <div class="form-group row  px-4">
                             <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle(s)') }}</label>

@@ -21,15 +21,21 @@ class EventsController extends Controller
 
     public function create(Request $request)
     {
-        
-        return view('events.create');
+        $today = date('Y-m-d');
+        $nextYear = date('Y-m-d',strtotime('+1 year'));
+        return view('events.create', compact('today','nextYear'));
     }
 
     public function store(Request $request)
     {
-        
-        dd($request);
+        Event::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'location' => $request->input('location'),
+            'date' => $request->input('date'),
+            'author_id' => $request->user()->id,
 
+        ]);
         // Rediriger vers  la  view "show" dès qu'elle sera disponible
         return redirect()->route('events');
     }

@@ -7,7 +7,7 @@
     <div class="row">
         <div class="mx-auto my-auto">{{ $events->links() }}</div>
         <div class="mx-auto">
-        <i class="fas fa-plus-circle fa-4x"></i>
+        <a href="#"><i class="fas fa-plus-circle fa-4x"></i></a>    
         </div>
     </div>
 
