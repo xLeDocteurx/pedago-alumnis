@@ -23,3 +23,6 @@ Route::get('/goodboy', 'HomeController@goodboy')->name('goodboy')->middleware('r
 Route::get('/badboy', 'HomeController@badboy')->name('badboy');
 
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
+
+//events routes
+Route::get('/events', 'EventsController@index')->name('events');
