@@ -18,6 +18,12 @@ class EventsController extends Controller
         
         return view('events.index', compact('events'));
     }
+    public function show(Request $request, $id)
+    {
+        $event = Event::find($id);
+        
+        return view('events.show', compact('event'));
+    }
 
     public function create(Request $request)
     {
