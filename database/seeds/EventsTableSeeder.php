@@ -11,33 +11,61 @@ class EventsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('events')->insert([
+            'title' => "lorem n°88",
+            'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+            'location' => "Paris",
+            'date' => "2018-11-16",
+            'author_id' => 1,
+           ]);
+           DB::table('events')->insert([
+            'title' => "lorem n°67",
+            'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+            'location' => "Paris",
+            'date' => "2018-11-16",
+            'author_id' => 4,
+           ]);
+           DB::table('events')->insert([
+            'title' => "lorem n°21",
+            'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+            'location' => "Paris",
+            'date' => "2018-11-16",
+            'author_id' => 3,
+           ]);
        DB::table('events')->insert([
-        'title' => "je suis le titre n°1 des events",
-        'content' => "je suis le contenu du premier event",
-        'location' => "toulouse",
-        'date' => "2018-11-15",
-        'author_id' => 1,
+        'title' => "lorem n°45",
+        'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+        'location' => "Paris",
+        'date' => "2018-11-16",
+        'author_id' => 2,
        ]);
        DB::table('events')->insert([
-        'title' => "je suis le titre n°2 des events",
-        'content' => "je suis le contenu du deuxieme event",
+        'title' => "lorem n°33",
+        'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+        'location' => "Paris",
+        'date' => "2018-11-16",
+        'author_id' => 2,
+       ]);
+       DB::table('events')->insert([
+        'title' => "lorem n°41",
+        'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
         'location' => "Paris",
         'date' => "2018-11-16",
         'author_id' => 1,
        ]);
        DB::table('events')->insert([
-        'title' => "je suis le titre n°3 des events",
-        'content' => "je suis le contenu du Troisieme event",
-        'location' => "Bordeaux",
-        'date' => "2018-11-17",
-        'author_id' => 1,
+        'title' => "lorem n°32",
+        'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+        'location' => "Paris",
+        'date' => "2018-11-16",
+        'author_id' => 2,
        ]);
        DB::table('events')->insert([
-        'title' => "je suis le titre n°4 des events",
-        'content' => "je suis le contenu du Quatrieme event",
-        'location' => "Montpellier",
-        'date' => "2018-11-18",
-        'author_id' => 1,
+        'title' => "lorem n°99",
+        'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+        'location' => "Paris",
+        'date' => "2018-11-16",
+        'author_id' => 2,
        ]);
     }
 }

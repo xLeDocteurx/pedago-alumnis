@@ -5,7 +5,10 @@
     <div class="container-fluid">
         
     <div class="row">
-        <div class="mx-auto">{{ $events->links() }}</div>
+        <div class="mx-auto my-auto">{{ $events->links() }}</div>
+        <div class="mx-auto">
+        <i class="fas fa-plus-circle fa-4x"></i>
+        </div>
     </div>
 
     <div class="row justify-content-center">
@@ -31,7 +34,10 @@
     </div>
 
     <div class="row">
-        <div class="mx-auto">{{ $events->links() }}</div>
+        <div class="mx-auto my-auto">{{ $events->links() }}</div>
+        <div class="mx-auto">
+        <i class="fas fa-plus-circle fa-4x"></i>
+        </div>
     </div>
     
     </div>
