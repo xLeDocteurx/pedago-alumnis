@@ -18,14 +18,13 @@ class EventsController extends Controller
         
         return view('events.index', compact('events'));
     }
-    public function show(Request $request, $id)
+    public function show($id)
     {
-        $event = Event::find($id);
-        
+        $event = Event::findOrFail($id);
         return view('events.show', compact('event'));
     }
 
-    public function create(Request $request)
+    public function create()
     {
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
@@ -48,7 +47,7 @@ class EventsController extends Controller
 
     public function delete(Request $request){
         $id = $request->id;
-        Event::find($id)->delete();
+        Event::findOrfail($id)->delete();
 
         return redirect()->route('events');
     }

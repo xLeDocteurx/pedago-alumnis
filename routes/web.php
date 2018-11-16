@@ -26,9 +26,7 @@ Route::get('/contacts', 'ContactsController@index')->name('contacts');
 
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
-Route::get('/events/{id}', 'EventsController@show')->name('events_show');
-
 Route::get('/events/create', 'EventsController@create')->name('events_create');
 Route::post('/events/store', 'EventsController@store')->name('events_store');
-
+Route::get('/events/{id}', 'EventsController@show')->name('events_show');
 Route::post('/events/delete', 'EventsController@delete')->name('events_delete');
