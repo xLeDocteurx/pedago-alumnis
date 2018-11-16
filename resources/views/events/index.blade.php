@@ -10,14 +10,23 @@
 
     <div class="row justify-content-center">
         @foreach($events as $event)
+        
         <div class="col-md-8">
             <div class="card my-4">
-                <div class="card-header">{{$event->title}}</div>
-                <div class="card-body my-4">
-                {{$event->content}}
+                <div class="card-header">
+                        <h3 class="mt-4 d-inline"> {{$event->title}}</h3>
+                    
+                        <p class="text-right my-auto"> à {{$event->location}} Le {{$event->date}}</p>
+                </div>
+                <div class="card-body">
+                <p class="my-4">{{$event->content}}</p> 
+                
+                <p class="text-right">Créer par {{$event->author->name}}</p>
+                
                 </div>
             </div>
         </div>
+        
         @endforeach
     </div>
 
