@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => "admin",
             'nom' => "ad",
             'prenom' => "min",
-            'region' => 1,
+            'region_id' => 1,
             'email' => 'admin@admin.com',
             'password' => bcrypt('password'),
         ]);
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'name' => "LeDocteur",
             'nom' => "Le",
             'prenom' => "Docteur",
-            'region' => 1,
+            'region_id' => 1,
             'email' => 'LeDocteur@LeDocteur.com',
             'password' => bcrypt('password'),
         ]);
@@ -31,7 +31,7 @@ class UsersTableSeeder extends Seeder
             'name' => "Gyozmo",
             'nom' => "Gyo",
             'prenom' => "zmo",
-            'region' => 1,
+            'region_id' => 1,
             'email' => 'Gyozmo@Gyozmo.com',
             'password' => bcrypt('password'),
         ]);
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             'name' => "Thingz",
             'nom' => "Stranger",
             'prenom' => "Thingz",
-            'region' => 1,
+            'region_id' => 1,
             'email' => 'Thingz@Thingz.com',
             'password' => bcrypt('password'),
         ]);
