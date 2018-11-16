@@ -15,7 +15,7 @@ class TagsFamilyTableSeeder extends Seeder
             'name' => 'Techno',
         ]);
         DB::table('tagfamilies')->insert([
-            'name' => 'User',
+            'name' => 'Méthodes de management',
         ]);
     }
 }

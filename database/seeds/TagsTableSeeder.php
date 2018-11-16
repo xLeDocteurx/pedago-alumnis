@@ -29,11 +29,11 @@ class TagsTableSeeder extends Seeder
         ]);
         DB::table('tags')->insert([
             'tagfamily_id' => 2,
-            'name' => 'usertag n°1',
+            'name' => 'Agile',
         ]);
         DB::table('tags')->insert([
             'tagfamily_id' => 2,
-            'name' => 'usertag n°2',
+            'name' => 'Méthode en V',
         ]);
     }
 }
