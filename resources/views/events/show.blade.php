@@ -14,12 +14,12 @@
                             @endif
                             <h3 class="mt-4"> {{$event->title}}</h3>
                         
-                            <p class="text-right my-auto"> à {{$event->location}} Le {{$event->date}}</p>
+                            <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
 
                     </div>
                     <div class="card-body">
                         <p class="my-4">{{$event->content}}</p> 
-                        <p>Créer par {{$event->author->name}}</p>
+                        <p>Créé par {{$event->author->name}}</p>
                     </div>
                     <div class="card-action text-right">
                         <!-- Si déja intéresser afficher un bouton pour défaire la relation -->

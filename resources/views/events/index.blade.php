@@ -19,12 +19,12 @@
                 <div class="card-header">
                         <a href="{{ route('events_show', $event->id) }}" title="{{$event->title}}"><h3 class="mt-4 d-inline">{{$event->title}}</h3></a>
                     
-                        <p class="text-right my-auto"> à {{$event->location}} Le {{$event->date}}</p>
+                        <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
                 </div>
                 <div class="card-body">
                 <p class="my-4">{{$event->content}}</p> 
                 
-                <p class="text-right">Créer par {{$event->author->name}}</p>
+                <p class="text-right">Créé par {{$event->author->name}}</p>
                 
                 </div>
             </div>
