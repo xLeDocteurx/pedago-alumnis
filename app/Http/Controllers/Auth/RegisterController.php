@@ -75,11 +75,6 @@ class RegisterController extends Controller
 
         $user->roles()->attach($data['roles']);
 
-        // RoleUser::create([
-        //     'user_id' => $user->id,
-        //     'role_id' => $role->value,
-        // ]);
-
         return $user;
     }
 }

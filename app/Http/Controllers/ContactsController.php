@@ -16,14 +16,15 @@ class ContactsController extends Controller
     //
     public function index (Request $request) {
         
-        $user_id = $request->user()->id;
+        $current_user = $request->user();
+        $relating_id = $current_user->id;
         
-        $contacts = Contact::where('relating_id', 2)->get();
-        // $contacts = User::find($user_id)->relate()->get();
-        // $contacts = $request->user()->relate()->get();
+        // $contacts = Contact::where('relating_id', 2)->get();
+        $contacts = $current_user->isRelated()->get();
+        $in_contacts = $current_user->relate()->get();
 
-        // dd($user_id);
+        // dd($relating_id);
 
-        return view('contacts.index', compact('contacts'));
+        return view('contacts.index', compact('contacts', 'in_contacts'));
     }
 }
