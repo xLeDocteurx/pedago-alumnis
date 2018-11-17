@@ -10,6 +10,6 @@ class Contact extends Model
         return $this->belongsTo('App\User');
     }
     public function related(){
-        return $this->hasMany('App\User');
+        return $this->hasOne('App\User');
     }
 }

@@ -3,23 +3,21 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
         
-        <div class="col-md-2">
-            @foreach ($contacts as $contact)
-                <div class="my-2">
-                    {{ $contact->relating }}
-                </div>
-            @endforeach
-        </div>
+    <div class="row justify-content-center">
+        @foreach($contacts as $contact)
         
-        <div class="col-md-8">
-
-        </div>
-
-        <div class="col-md-2"></div>
-
+            <div class="col-md-8">
+                    <div class="card my-3">
+                        <div class="card-header">
+                            <h4 class="mt-4 d-inline">{{$contact}}</h4>
+                        </div>
+                    </div>
+            </div>
+        
+        @endforeach
     </div>
+
 </div>
 
 @endsection

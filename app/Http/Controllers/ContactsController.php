@@ -17,11 +17,12 @@ class ContactsController extends Controller
     public function index (Request $request) {
         
         $user_id = $request->user()->id;
+        
+        $contacts = Contact::where('relating_id', 2)->get();
+        // $contacts = User::find($user_id)->relate()->get();
+        // $contacts = $request->user()->relate()->get();
 
-        $contacts = Contact::all();
-        // $contacts = $request->user()->relate();
-
-        // dd(User::find($user_id)->relate());
+        // dd($user_id);
 
         return view('contacts.index', compact('contacts'));
     }
