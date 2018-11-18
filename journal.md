@@ -18,12 +18,14 @@ Journal de bord :
     Problème : Les middleware sont une nouveauté, cela a pris du temps.
 
 15/11/2018:
-    Produit :
-    Prévu :
-    Problème :
+    Produit : migrations terminées, debut des seeds.
+    Prévu : finir les seeds et commencer la partie event
+    Problème : 
 
 16/11/2018:
-
+    produit : Fin des seeds et CRD des events.
+    Prévu : fin du crud event
+    Probleme :	problemes de routes quelques conflits non identifiés.
 
 19/11/2018:
 

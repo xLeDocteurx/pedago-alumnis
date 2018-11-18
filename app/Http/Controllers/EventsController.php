@@ -16,21 +16,24 @@ class EventsController extends Controller
     public function index(Request $request)
     {
         $events = Event::orderBy('id', 'desc')->paginate(5);
+        $eventlist = Event::all();
         
-        return view('events.index', compact('events'));
+        return view('events.index', compact('events','eventlist'));
     }
     public function show($id)
     {
         $event = Event::findOrFail($id);
-        return view('events.show', compact('event'));
+        // $eventuser = Event::find($id)->subscribers()->get();
+        return view('events.show', compact('event', 'eventuser'));
     }
 
     public function subscribe(Request $request, $id)
     {
         $event = Event::find($id);
-        $request->user()->events()->attach($event->id);
+        dd($event->subscribers());
+        $event->subscribers()->attach($request->user()->id);
 
-        return redirect()->route('events_show', $id);
+        return redirect()->route('events_subscribe', $id);
     }
 
     public function unsubscribe(Request $request, $id)
@@ -66,5 +69,9 @@ class EventsController extends Controller
         Event::findOrfail($id)->delete();
 
         return redirect()->route('events');
+    }
+
+    public function filter(Request $request){
+
     }
 }
