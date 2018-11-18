@@ -41,8 +41,5 @@ Route::post('/events/store', 'EventsController@store')->name('events_store');
 Route::get('/events/{id}', 'EventsController@show')->name('events_show');
 Route::get('/events/{id}/delete', 'EventsController@delete')->name('events_delete');
 Route::get('/events/{id}/subscribe', 'EventsController@subscribe')->name('events_subscribe');
-<<<<<<< HEAD
 Route::get('/events/{id}/unsubscribe', 'EventsController@unsubscribe')->name('events_unsubscribe');
-=======
 Route::get('/events/filter', 'EventsController@filter')->name('events_filter');
->>>>>>> df6aa2001760c8477d10302bb4c975762fd927af
