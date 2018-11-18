@@ -70,13 +70,13 @@
     
                                 <div class="type_msg">
                                     <div class="input_msg_write row">
-                                        <input type="text" class="write_msg col-10" placeholder="Entrez un message" />
+                                        <input type="text" class="write_msg col-10" placeholder="Type a message" />
                                         <div class="col-2">
                                             <button class="d-inline btn btn-primary mt-3" type="button">
                                                 Envoyer <i class="fas fa-share-square"></i>
                                             </button>
                                         </div>
-                                    </divcl>
+                                    </div>
                                 </div>
                             </div>
     
