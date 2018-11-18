@@ -30,10 +30,9 @@ class EventsController extends Controller
     public function subscribe(Request $request, $id)
     {
         $event = Event::find($id);
-        dd($event->subscribers());
         $event->subscribers()->attach($request->user()->id);
 
-        return redirect()->route('events_subscribe', $id);
+        return redirect()->route('events_show', $id);
     }
 
     public function unsubscribe(Request $request, $id)
