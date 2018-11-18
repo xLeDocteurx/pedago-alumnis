@@ -43,8 +43,8 @@
                     </div>
                     <div class="card-action text-right">
                         <!-- Si déja intéresser afficher un bouton pour défaire la relation -->
-                            <a class="btn btn-primary" href="{{ route('events_unsubscribe', $event->id) }}" title="{{ __('Je ne suis plus intéressé') }}">Je ne suis plus intéressé <i class="fa fa-star"></i></a>
                             @if ($event->author->id !== Auth::user()->id)
+                                <a class="btn btn-primary" href="{{ route('events_unsubscribe', $event->id) }}" title="{{ __('Je ne suis plus intéressé') }}">Je ne suis plus intéressé <i class="fa fa-star"></i></a>
                                 <a class="btn btn-outline-primary" href="{{ route('events_subscribe', $event->id) }}" title="{{ __('Je suis intéressé') }}">Je suis intéressé <i class="far fa-star"></i></a>
                             @endif
                     </div>
