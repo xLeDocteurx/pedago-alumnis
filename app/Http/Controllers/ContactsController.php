@@ -19,12 +19,28 @@ class ContactsController extends Controller
         $current_user = $request->user();
         $relating_id = $current_user->id;
         
-        // $contacts = Contact::where('relating_id', 2)->get();
+        $contacts = $current_user->relate()->get();
+        $in_contacts = $current_user->isRelated()->get();
+
+        return view('contacts.index', compact('contacts', 'in_contacts'));
+    }
+
+    public function show (Request $request, $id) {
+        
+        $current_user = $request->user();
+        $relating_id = $current_user->id;
+        
         $contacts = $current_user->isRelated()->get();
         $in_contacts = $current_user->relate()->get();
 
         // dd($relating_id);
 
-        return view('contacts.index', compact('contacts', 'in_contacts'));
+        $conversation = $id;
+        
+        $incoming_messages = '';
+
+        $outgoing_messages = '';
+
+        return view('contacts.index', compact('contacts', 'in_contacts', 'conversation'));
     }
 }

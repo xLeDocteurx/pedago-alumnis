@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container">
         
     <div class="row">
         <div class="mx-auto">{{ $users->links() }}</div>
@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         @foreach($users as $user)
         
-        <div class="col-md-8">
+        <div class="col-10">
             <a class="nounderline" href="{{ route('users_show', $user->id) }}" title="{{$user->name}}">
                 <div class="card my-3">
                     <div class="card-header">

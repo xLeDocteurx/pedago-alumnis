@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container">
 
         <div class="row justify-content-center">
             
-            <div class="col-md-8">
+            <div class="col-10">
                 <div class="card my-4">
                     <div class="card-header">
                             @if ($event->author->id === Auth::user()->id)

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container-fluid">
+    <div class="container">
         
     <div class="row">
         <div class="mx-auto">{{ $events->links() }}</div>
@@ -14,7 +14,7 @@
     <div class="row justify-content-center">
         @foreach($events as $event)
         
-        <div class="col-md-8">
+        <div class="col-10">
             <div class="card my-3">
                     <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->title}}">
                 <div class="card-header">

@@ -30,6 +30,8 @@ Route::get('/users/{id}', 'UsersController@show')->name('users_show');
 //contacts routes
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
 
+Route::get('/contacts/{id}', 'ContactsController@show')->name('contacts_show');
+
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
 
