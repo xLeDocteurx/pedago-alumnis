@@ -23,7 +23,9 @@
                     </div>
                     <div class="card-action text-right">
                         <!-- Si déja intéresser afficher un bouton pour défaire la relation -->
+                        @if ($event->author->id !== Auth::user()->id)
                         <a class="btn btn-outline-primary" href="{{ route('events_subscribe', $event->id) }}" title="{{ __('Je suis intéressé') }}">Je suis intéressé <i class="far fa-star"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
