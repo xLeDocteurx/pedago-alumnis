@@ -22,6 +22,7 @@
 
             <label for="city-filter">Ville</label>
             <select name="Technos" id="" name="city-filter">
+            <!-- probleme ici, comment afficher une seule fois une ville si elle existe sur plusieurs evenements -->
                 @foreach($eventlist as $event)
                 <option value="{{$event->location}}">{{$event->location}}</option>
                 @endforeach
