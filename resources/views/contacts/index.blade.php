@@ -40,9 +40,8 @@
                                         </div>
                                         <div class="received_msg">
                                             <div class="received_withd_msg">
-                                                <p>Test which is a new approach to have all
-                                                    solutions</p>
-                                                <span class="time_date"> 11:01 AM    |    June 9</span>
+                                                <p>Lorem ipsum dolor, aie aie aie, bobo bobo !</p>
+                                                <span class="time_date">{{ $conversation->name }} 11:01 AM    |    June 9</span>
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +50,7 @@
                                         <div class="sent_msg">
                                             <p>Test which is a new approach to have all
                                             solutions</p>
-                                            <span class="time_date"> 11:01 AM    |    June 9</span>
+                                            <span class="time_date">11:01 AM    |    June 9</span>
                                         </div>
                                     </div>
     
@@ -61,9 +60,8 @@
                                         </div>
                                         <div class="received_msg">
                                             <div class="received_withd_msg">
-                                                <p>Test which is a new approach to have all
-                                                    solutions</p>
-                                                <span class="time_date"> 11:01 AM    |    June 9</span>
+                                                <p>Lorem ipsum dolor, aie aie aie, bobo</p>
+                                                <span class="time_date">{{ $conversation->name }} 11:01 AM    |    June 9</span>
                                             </div>
                                         </div>
                                     </div>
