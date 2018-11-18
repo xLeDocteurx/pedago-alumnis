@@ -18,6 +18,34 @@
                             <p class="my-4">{{$role->name}}</p> 
                         @endforeach
 
+                        <p class="my-4">
+                            <h4>Mes évènements :</h4>
+                            @foreach($myEvents as $event)
+                                <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->name}}">
+                                    <div class="card mt-3">
+                                        <div class="card-header">
+                                                    <h4 class="mt-4 d-inline">{{$event->title}}</h4>
+                                                <!-- <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p> -->
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </p> 
+
+                        <p class="my-4">
+                            <h4>Les évènements qui m'intéressent :</h4>
+                            @foreach($events as $event)
+                                <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->name}}">
+                                    <div class="card mt-3">
+                                        <div class="card-header">
+                                                    <h4 class="mt-4 d-inline">{{$event->title}}</h4>
+                                                <!-- <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p> -->
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </p> 
+
                     </div>
                     <div class="card-action text-right">
                         <!--  Ajouter à sa liste de contacts -->

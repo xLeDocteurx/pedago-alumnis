@@ -18,8 +18,9 @@ class Event extends Model
     
 
     public function subscribers(){
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User');
     }
+
     public function author(){
         return $this->belongsTo('App\User');
     }
