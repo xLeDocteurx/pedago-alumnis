@@ -22,7 +22,7 @@
 
             <label for="city-filter">Ville</label>
             <select name="Technos" id="" name="city-filter">
-                @foreach($eventslist as $event)
+                @foreach($eventlist as $event)
                 <option value="{{$event->location}}">{{$event->location}}</option>
                 @endforeach
             </select>
