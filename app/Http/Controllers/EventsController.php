@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Event;
 use App\User;
+use App\Event;
+use App\Region;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -59,7 +60,10 @@ class EventsController extends Controller
     {
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
-        return view('events.create', compact('today','nextYear'));
+
+        $regions = Region::all();
+
+        return view('events.create', compact('today','nextYear','regions'));
     }
 
     public function store(Request $request)
@@ -67,6 +71,7 @@ class EventsController extends Controller
         Event::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
             'date' => $request->input('date'),
             'author_id' => $request->user()->id,
@@ -92,7 +97,9 @@ class EventsController extends Controller
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
 
-        return view('events.update' ,compact('event','today','nextYear'));
+        $regions = Region::all();
+
+        return view('events.update' ,compact('event','today','nextYear','regions'));
     }
     public function storeUpdate(Request $request, $id)
     {
