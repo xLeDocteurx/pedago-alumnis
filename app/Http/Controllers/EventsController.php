@@ -91,7 +91,7 @@ class EventsController extends Controller
     }
 
     public function filter(Request $request){
-
+        
     }
 
     public function update(Request $request, $id)

@@ -42,6 +42,7 @@ Route::get('/events/{id}', 'EventsController@show')->name('events_show');
 Route::get('/events/{id}/delete', 'EventsController@delete')->name('events_delete');
 Route::get('/events/{id}/subscribe', 'EventsController@subscribe')->name('events_subscribe');
 Route::get('/events/{id}/unsubscribe', 'EventsController@unsubscribe')->name('events_unsubscribe');
+
 Route::get('/events/filter', 'EventsController@filter')->name('events_filter');
 
 Route::get('/events/{id}/update', 'EventsController@update')->name('events_update');
