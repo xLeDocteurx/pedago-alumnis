@@ -12,6 +12,8 @@
                     
                             @if ($event->author->id === Auth::user()->id)
                                 <a class="btn btn-danger" href="{{ route('events_delete', $event->id) }}" title="{{ __('Supprimer l\'évènement') }}">Supprimer l'évènement <i class="fas fa-trash"></i></a>
+                                <a class="btn btn-warning" href="{{ route('events_update', $event->id) }}" title="{{ __('Modifier')}}">Modifier<i class="fas fa-edit"></i></a>
+                                
                             @endif
                             <h3 class="mt-3"> {{$event->title}}</h3>
                         
