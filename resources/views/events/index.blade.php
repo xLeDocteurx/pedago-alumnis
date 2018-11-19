@@ -9,25 +9,13 @@
             <form action="{{ route('events_filter') }}" method="get" class="mb-4">
             @csrf
             
-            <label for="textfilter">Recherche globale</label>
-            <input type="text">
-            
-            <label for="techno-filter">Technologies</label>
-            <select name="Technos" id="" name="techo-filter">
-            <option value="php">PHP</option>
-            <option value="Javascript">Javascript</option>
-            <option value="laravel">laravel</option>
-            <option value="Symfony">Symfony</option>
+            <label for="region-filter"></label>
+            <select name="region" id="region-select" name="region-filter">
+                <option >Selectionnez une région</option>
+            @foreach($regions as $region)
+            <option value="{{$region->name}}">{{$region->name}}</option>
+            @endforeach
             </select>
-
-            <label for="city-filter">Ville</label>
-            <select name="Technos" id="" name="city-filter">
-            <!-- probleme ici, comment afficher une seule fois une ville si elle existe sur plusieurs evenements -->
-                @foreach($eventlist as $event)
-                <option value="{{$event->location}}">{{$event->location}}</option>
-                @endforeach
-            </select>
-
             </form>
         </div>
 
