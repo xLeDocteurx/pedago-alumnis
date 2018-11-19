@@ -69,6 +69,26 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="region_id" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="region_id" id="region_id">
+                                    <option value="">Selectionnez la région</option>
+                                    @foreach
+                                        <option value="{{$region->id}}">{{$region->name}}</option>
+                                    @endforeach
+
+                                </select>
+
+                                @if ($errors->has('date'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('region') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         
 
                         <!-- <div class="form-group row  px-4">

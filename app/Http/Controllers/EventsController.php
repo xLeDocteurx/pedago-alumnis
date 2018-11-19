@@ -18,8 +18,10 @@ class EventsController extends Controller
     {
         $events = Event::orderBy('id', 'desc')->paginate(5);
         $eventlist = Event::all();
+        $regions = Region::all();
         
-        return view('events.index', compact('events','eventlist'));
+
+        return view('events.index', compact('events','eventlist','regions'));
     }
     public function show($id)
     {
