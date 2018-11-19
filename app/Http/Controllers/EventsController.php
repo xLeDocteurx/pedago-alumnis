@@ -23,6 +23,7 @@ class EventsController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
+
         // $eventuser = Event::find($id)->subscribers()->get();
         return view('events.show', compact('event', 'eventuser'));
     }

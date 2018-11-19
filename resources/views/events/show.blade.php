@@ -23,6 +23,7 @@
                         </p> 
                         <p class="my-4">
                             <h4>Personnes intéressées :</h4>
+
                             @foreach($event->subscribers as $subscriber)
                                 <a class="nounderline" href="{{ route('users_show', $subscriber->id) }}" title="{{$subscriber->name}}">
                                     <div class="card mt-3">
