@@ -42,6 +42,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="region_id" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="region_id" name="region_id" class="form-control{{ $errors->has('region_id') ? ' is-invalid' : '' }}" required autofocus>
+                                    <option selected>Sélectionnez une région</option>
+                                    @foreach ($regions as $region)
+                                        <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('region_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('region_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Ville') }}</label>
 
                             <div class="col-md-6">
@@ -68,8 +86,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        
 
                         <!-- <div class="form-group row  px-4">
                             <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle(s)') }}</label>
