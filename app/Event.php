@@ -25,7 +25,7 @@ class Event extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function regions(){
+    public function region(){
         return $this->belongsTo('App\Region');
     }
 

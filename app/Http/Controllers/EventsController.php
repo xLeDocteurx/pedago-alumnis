@@ -27,6 +27,7 @@ class EventsController extends Controller
     {
         $event = Event::findOrFail($id);
         $subscribers_ids = $event->subscribers->pluck('id')->all();
+        $regions = Region::all();
 
         if(in_array(Auth::user()->id, $subscribers_ids)) {
             $event->participating = true;
@@ -34,7 +35,7 @@ class EventsController extends Controller
             $event->participating = false;
         }
 
-        return view('events.show', compact('event'));
+        return view('events.show', compact('event','regions'));
     }
 
     public function subscribe(Request $request, $id)
