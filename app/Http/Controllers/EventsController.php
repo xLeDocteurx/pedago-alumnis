@@ -16,10 +16,15 @@ class EventsController extends Controller
 
     public function index(Request $request)
     {
-        $events = Event::orderBy('id', 'desc')->paginate(5);
-        $eventlist = Event::all();
-        $regions = Region::all();
+        if (isset($_GET['region_id'])) {
+            $eventlist = Event::where('region_id', $_GET['region_id'])->get();
+            $events = Event::where('region_id', $_GET['region_id'])->orderBy('id', 'desc')->paginate(5);
+        } else {
+            $eventlist = Event::all();
+            $events = Event::orderBy('id', 'desc')->paginate(5);
+        }
         
+        $regions = Region::all();
 
         return view('events.index', compact('events','eventlist','regions'));
     }
