@@ -35,9 +35,24 @@ class ContactsController extends Controller
         $conversation = User::find($id);
         
         $incoming_messages = Message::where('sender_id', $id)->where('receiver_id', $request->user()->id)->get();
-        // dd($incoming_messages);
         $outgoing_messages = Message::where('receiver_id', $id)->where('sender_id', $request->user()->id)->get();
+        
+        $messages = [];
+        foreach($incoming_messages as $message){
+            array_push($messages, $message);
+        }
+        foreach($outgoing_messages as $message){
+            array_push($messages, $message);
+        }
+        array_sort(function ($element) {
+            return $element->id;
+        });
 
-        return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'incoming_messages', 'outgoing_messages'));
+        return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'messages'));
+    }
+
+    public function store(Request $request) 
+    {
+
     }
 }
