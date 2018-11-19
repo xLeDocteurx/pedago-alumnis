@@ -12,4 +12,7 @@ class Region extends Model
     public function jobs(){
         return $this->hasMany('App\Job');
     }
+    public function events(){
+        return $this->hasMany('App\Event');
+    }
 }
