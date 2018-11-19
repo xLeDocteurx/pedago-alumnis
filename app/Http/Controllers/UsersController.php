@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,8 @@ class UsersController extends Controller
     public function show(Request $request, $id)
     {
         $user = User::find($id);
-        return view('users.show', compact('user'));
+        $events = $user->events()->get();
+        $myEvents = Event::where('author_id', $id)->get();
+        return view('users.show', compact('user', 'events', 'myEvents'));
     }
 }

@@ -37,16 +37,20 @@ class User extends Authenticatable
         return $this->hasMany('App\Event');
     }
     
-    public function myEvents(){
-        return $this->hasMany('App\Event');
-    }
+    // public function myEvents(){
+    //     return $this->hasMany('App\Event');
+    // }
 
     public function myJobs(){
         return $this->hasMany('App\Jobs');
     }
 
-
-    public function messages()
+    public function messages_received()
+    {
+        return $this->hasMany('App\Message');
+    }
+    
+    public function messages_sent()
     {
         return $this->hasMany('App\Message');
     }

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class EventsController extends Controller
 {
+
     public function index(Request $request)
     {
         $events = Event::orderBy('id', 'desc')->paginate(5);
@@ -29,10 +30,22 @@ class EventsController extends Controller
     public function subscribe(Request $request, $id)
     {
         $event = Event::find($id);
-        
-        $event->subscribers()->attach($request->user()->id);
+        try {
+            $event->subscribers()->attach($request->user()->id);
+        }
+        catch (Exception $e) {}
+        finally {
+            return redirect()->route('events_show', $id);
+        }
 
-        return redirect()->route('events_subscribe', $id);
+    }
+
+    public function unsubscribe(Request $request, $id)
+    {
+        $event = Event::find($id);
+        $request->user()->events()->detach($event->id);
+
+        return redirect()->route('events_show', $id);
     }
 
     public function create(Request $request)
