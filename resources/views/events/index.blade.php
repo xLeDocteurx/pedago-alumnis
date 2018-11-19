@@ -34,7 +34,9 @@
                     <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->title}}">
                 <div class="card-header">
                         <h3 class="mt-4 d-inline">{{$event->title}}</h3>
-                    <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
+                    <p class="text-right my-auto">
+                        <span class="badge p-2 badge-primary">{{ $event->region->name }}</span> A {{$event->location}} le {{$event->date}}
+                    </p>
                 </div>
                     </a>
                 <div class="card-body">
