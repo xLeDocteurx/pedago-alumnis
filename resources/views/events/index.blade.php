@@ -3,21 +3,21 @@
 @section('content')
 
 
-    <div class="container">
+<div class="container">
+    
+    <div class="row">
+        <form action="{{ route('events_filter') }}" method="get" class="mb-4">
+        @csrf
         
-        <div class="row">
-            <form action="{{ route('events_filter') }}" method="get" class="mb-4">
-            @csrf
-            
-            <label for="region-filter"></label>
-            <select name="region" id="region-select" name="region-filter">
-                <option >Selectionnez une région</option>
-            @foreach($regions as $region)
-            <option value="{{$region->name}}">{{$region->name}}</option>
-            @endforeach
-            </select>
-            </form>
-        </div>
+        <label for="region-filter"></label>
+        <select name="region" id="region-select" name="region-filter">
+            <option >Selectionnez une région</option>
+        @foreach($regions as $region)
+        <option value="{{$region->name}}">{{$region->name}}</option>
+        @endforeach
+        </select>
+        </form>
+    </div>
 
     <div class="row">
         <div class="mx-auto">{{ $events->links() }}</div>

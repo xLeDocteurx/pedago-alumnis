@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
+            $table->text('image_url')->nullable();
             $table->string('location');
             $table->integer('region_id');
             $table->date('date');

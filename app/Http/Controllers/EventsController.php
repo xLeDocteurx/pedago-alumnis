@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 use App\Event;
 use App\Region;
+use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class EventsController extends Controller
@@ -76,9 +77,14 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
+
+        // dd(Input::file('image'));
+        // dd($request->input('image'));
+
         Event::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'image_url' => $image_url,
             'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
             'date' => $request->input('date'),
