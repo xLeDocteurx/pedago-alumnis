@@ -43,7 +43,10 @@ Route::get('/events/{id}/delete', 'EventsController@delete')->name('events_delet
 Route::get('/events/{id}/subscribe', 'EventsController@subscribe')->name('events_subscribe');
 Route::get('/events/{id}/unsubscribe', 'EventsController@unsubscribe')->name('events_unsubscribe');
 
-Route::get('/events/filter', 'EventsController@filter')->name('events_filter');
-
 Route::get('/events/{id}/update', 'EventsController@update')->name('events_update');
 Route::post('/events/{id}/storeupdate', 'EventsController@storeUpdate')->name('events_storeupdate');
+
+//jobs routes
+Route::get('/annonces', 'JobsController@index')->name('annonces');
+Route::get('/annonces/{id}', 'JobsController@index')->name('annonces_show');
+Route::get('/annonces/create', 'JobsController@index')->name('annonces_create');

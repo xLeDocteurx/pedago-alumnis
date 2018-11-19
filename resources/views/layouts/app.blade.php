@@ -62,6 +62,10 @@
                             </li>
                             
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('annonces') }}">{{ __('Annonces') }}</a>
+                            </li>
+                            
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('users') }}">{{ __('Utilisateurs') }}</a>
                             </li>
                                             

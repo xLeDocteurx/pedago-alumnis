@@ -29,6 +29,7 @@ class EventsController extends Controller
 
         return view('events.index', compact('events','eventlist','regions'));
     }
+    
     public function show($id)
     {
         $event = Event::findOrFail($id);
@@ -79,12 +80,12 @@ class EventsController extends Controller
     {
 
         // dd(Input::file('image'));
-        // dd($request->input('image'));
+        // dd($request->image);
 
         Event::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'image_url' => $image_url,
+            // 'image_url' => $image_url,
             'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
             'date' => $request->input('date'),
@@ -99,10 +100,6 @@ class EventsController extends Controller
         Event::findOrfail($id)->delete();
 
         return redirect()->route('events');
-    }
-
-    public function filter(Request $request){
-        
     }
 
     public function update(Request $request, $id)
