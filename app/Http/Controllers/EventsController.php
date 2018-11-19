@@ -85,4 +85,26 @@ class EventsController extends Controller
     public function filter(Request $request){
 
     }
+
+    public function update(Request $request, $id)
+    {
+        $event = Event::findOrfail($id);
+        $today = date('Y-m-d');
+        $nextYear = date('Y-m-d',strtotime('+1 year'));
+
+        return view('events.update' ,compact('event','today','nextYear'));
+    }
+    public function storeUpdate(Request $request, $id)
+    {
+        $event = Event::findOrfail($id);
+        $event->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'location' => $request->input('location'),
+            'date' => $request->input('date'),
+            'author_id' => $request->user()->id,
+        ]);
+
+        return redirect()->route('events_show',$id);
+    }
 }
