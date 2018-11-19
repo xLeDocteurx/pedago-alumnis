@@ -23,8 +23,14 @@ class EventsController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
+        $subscribers_ids = $event->subscribers->pluck('id')->all();
 
-        // $eventuser = Event::find($id)->subscribers()->get();
+        if(in_array(Auth::user()->id, $subscribers_ids)) {
+            $event->participating = true;
+        } else {
+            $event->participating = false;
+        }
+
         return view('events.show', compact('event'));
     }
 

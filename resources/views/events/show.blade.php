@@ -22,6 +22,12 @@
                         <p class="my-4">
                             {{$event->content}}
                         </p> 
+                        <p class="text-right">
+                            Créé par 
+                            <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">
+                                {{$event->author->name}}
+                            </a>
+                        </p>
                         <p class="my-4">
                             <h4>Personnes intéressées :</h4>
 
@@ -36,18 +42,14 @@
                                 </a>
                             @endforeach
                         </p> 
-                        <p class="text-right">
-                            Créé par 
-                            <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">
-                                {{$event->author->name}}
-                            </a>
-                        </p>
                     </div>
                     <div class="card-action text-right">
-                        <!-- Si déja intéresser afficher un bouton pour défaire la relation -->
                             @if ($event->author->id !== Auth::user()->id)
-                                <a class="btn btn-primary" href="{{ route('events_unsubscribe', $event->id) }}" title="{{ __('Je ne suis plus intéressé') }}">Je ne suis plus intéressé <i class="fa fa-star"></i></a>
-                                <a class="btn btn-outline-primary" href="{{ route('events_subscribe', $event->id) }}" title="{{ __('Je suis intéressé') }}">Je suis intéressé <i class="far fa-star"></i></a>
+                                @if ($event->participating)
+                                    <a class="btn btn-outline-primary" href="{{ route('events_unsubscribe', $event->id) }}" title="{{ __('Je ne suis plus intéressé') }}">Je ne suis plus intéressé <i class="fa fa-star"></i></a>
+                                @else
+                                    <a class="btn btn-primary" href="{{ route('events_subscribe', $event->id) }}" title="{{ __('Je suis intéressé') }}">Je suis intéressé <i class="far fa-star"></i></a>
+                                @endif
                             @endif
                     </div>
                 </div>

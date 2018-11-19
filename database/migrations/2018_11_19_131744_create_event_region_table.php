@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactsTable extends Migration
+class CreateEventRegionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->increments('id');
-            // $table->primary(['relating_id', 'related_id']);
-            $table->integer('relating_id');
-            $table->integer('related_id');
+        Schema::create('event_region', function (Blueprint $table) {
+            // $table->increments('id');
+            $table->primary(['event_id', 'region_id']);
+            $table->integer('event_id');
+            $table->integer('region_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact');
+        Schema::dropIfExists('event_region');
     }
 }

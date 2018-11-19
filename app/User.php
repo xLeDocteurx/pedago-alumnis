@@ -34,7 +34,7 @@ class User extends Authenticatable
     }
     
     public function events(){
-        return $this->hasMany('App\Event');
+        return $this->belongsToMany('App\Event');
     }
     
     // public function myEvents(){
@@ -68,12 +68,16 @@ class User extends Authenticatable
     // contact section
     public function relate()
     {
+        // return $this->belongsToMany('App\User', 'contacts');
         return $this->belongsToMany('App\User', 'contacts', 'id', 'relating_id');
+        // return $this->hasMany('App\User');
     }
 
     public function isRelated()
     {
+        // return $this->belongsToMany('App\User', 'contacts');
         return $this->belongsToMany('App\User', 'contacts', 'id', 'related_id');
+        // return $this->hasMany('App\User');
     }
     // contact end
 }
