@@ -29,14 +29,12 @@ class EventsController extends Controller
 
     public function subscribe(Request $request, $id)
     {
+        $event = Event::find($id);
         try {
-            $event = Event::find($id);
             $event->subscribers()->attach($request->user()->id);
-    
-            return redirect()->route('events_show', $id);
         }
-        catch (Exception $e) {
-            
+        catch (Exception $e) {}
+        finally {
             return redirect()->route('events_show', $id);
         }
 
