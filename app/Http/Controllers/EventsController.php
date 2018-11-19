@@ -25,7 +25,7 @@ class EventsController extends Controller
         $event = Event::findOrFail($id);
 
         // $eventuser = Event::find($id)->subscribers()->get();
-        return view('events.show', compact('event', 'eventuser'));
+        return view('events.show', compact('event'));
     }
 
     public function subscribe(Request $request, $id)

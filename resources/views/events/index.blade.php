@@ -6,7 +6,7 @@
     <div class="container">
         
         <div class="row">
-            <form action="{{ route('events_filter') }}" method="get">
+            <form action="{{ route('events_filter') }}" method="get" class="mb-4">
             @csrf
             
             <label for="textfilter">Recherche globale</label>

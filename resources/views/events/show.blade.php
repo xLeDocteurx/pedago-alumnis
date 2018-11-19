@@ -9,6 +9,7 @@
             <div class="col-10">
                 <div class="card my-4">
                     <div class="card-header">
+                    
                             @if ($event->author->id === Auth::user()->id)
                                 <a class="btn btn-danger" href="{{ route('events_delete', $event->id) }}" title="{{ __('Supprimer l\'évènement') }}">Supprimer l'évènement <i class="fas fa-trash"></i></a>
                             @endif

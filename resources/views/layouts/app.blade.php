@@ -94,9 +94,18 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 my-4">
             @yield('content')
         </main>
     </div>
+    
+        <div class="navbar navbar-light navbar-laravel d-flex justify-content-end">
+            
+            <a href="" class=""><i class="fab fa-facebook fa-3x mx-2"></i></a> 
+        <a href=""><i class="fab fa-github fa-3x mx-2"></i></a>
+        <a href=""><i class="fab fa-reddit fa-3x mx-2"></i></a>
+            
+        </div>
+    
 </body>
 </html>
