@@ -17,7 +17,7 @@
                             @endif
                             <h3 class="mt-3"> {{$event->title}}</h3>
                         
-                            <p class="text-right my-auto"> A {{$event->location}} le {{$event->date}}</p>
+                            <p class="text-right my-auto"> En {{$event->region->name}} A {{$event->location}} le {{$event->date}}</p>
 
                     </div>
                     <div class="card-body">
