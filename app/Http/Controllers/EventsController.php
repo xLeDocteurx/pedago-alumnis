@@ -23,13 +23,13 @@ class EventsController extends Controller
     {
         $event = Event::findOrFail($id);
         // $eventuser = Event::find($id)->subscribers()->get();
-        return view('events.show', compact('event', 'eventuser'));
+        return view('events.show', compact('event'));
     }
 
     public function subscribe(Request $request, $id)
     {
         $event = Event::find($id);
-        dd($event->subscribers());
+        
         $event->subscribers()->attach($request->user()->id);
 
         return redirect()->route('events_subscribe', $id);
