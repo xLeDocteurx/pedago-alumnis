@@ -6,16 +6,17 @@
     <div class="container">
         
         <div class="row">
-            <form action="{{ route('events_filter') }}" method="get" class="mb-4">
+            <form action="{{ route('events') }}" method="get" class="mb-4">
             @csrf
             
             <label for="region-filter"></label>
-            <select name="region" id="region-select" name="region-filter">
+            <select onchange="this.form.submit()" name="region_id" id="region-select" name="region-filter">
                 <option >Selectionnez une région</option>
             @foreach($regions as $region)
-            <option value="{{$region->name}}">{{$region->name}}</option>
+            <option value="{{$region->id}}">{{$region->name}}</option>
             @endforeach
             </select>
+            <button type="submit">Ok</button>
             </form>
         </div>
 
