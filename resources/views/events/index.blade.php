@@ -5,18 +5,18 @@
 
 <div class="container">
     
-        <div class="row">
-            <form action="{{ route('events') }}" method="get" class="mb-4">
-            @csrf
-                <label for="region-filter"></label>
-                <select onchange="this.form.submit()" name="region_id" id="region-select" name="region-filter">
-                    <option >Selectionnez une région</option>
-                    @foreach($regions as $region)
-                        <option value="{{$region->id}}">{{$region->name}}</option>
-                    @endforeach
-                </select>
-            </form>
-        </div>
+    <div class="row">
+        <form action="{{ route('events') }}" method="get" class="mb-4">
+        @csrf
+            <label for="region-filter">Région</label>
+            <select onchange="this.form.submit()" name="region_id" id="region-select" name="region-filter">
+                <option >Selectionnez une région</option>
+                @foreach($regions as $region)
+                    <option value="{{$region->id}}">{{$region->name}}</option>
+                @endforeach
+            </select>
+        </form>
+    </div>
 
     <div class="row">
         <div class="mx-auto">{{ $events->links() }}</div>

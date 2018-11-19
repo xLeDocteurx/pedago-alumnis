@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\Tag;
 use App\Region;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -25,7 +26,8 @@ class JobsController extends Controller
         }
         
         $regions = Region::all();
+        $tags = Tag::all();
 
-        return view('jobs.index', compact('jobs','joblist','regions'));
+        return view('jobs.index', compact('jobs','joblist','regions', 'tags'));
     }
 }

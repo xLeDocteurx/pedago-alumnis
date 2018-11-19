@@ -20,7 +20,9 @@ class ContactsController extends Controller
         $relating_id = $current_user->id;
         
         $contacts = $current_user->relate()->get();
-        $in_contacts = $current_user->isRelated()->get();
+        // $in_contacts = $current_user->isRelated()->get();
+        // $contacts = [];
+        $in_contacts = [];
 
         return view('contacts.index', compact('contacts', 'in_contacts'));
     }

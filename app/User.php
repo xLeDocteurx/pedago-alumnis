@@ -68,16 +68,16 @@ class User extends Authenticatable
     // contact section
     public function relate()
     {
+        return $this->belongsToMany('App\User', 'contacts', 'relating_id', 'related_id');
         // return $this->belongsToMany('App\User', 'contacts');
-        return $this->belongsToMany('App\User', 'contacts', 'id', 'relating_id');
-        // return $this->hasMany('App\User');
+        // return $this->belongsToMany('App\User');
     }
 
     public function isRelated()
     {
+        return $this->belongsToMany('App\User', 'contacts', 'related_id', 'relating_id');
         // return $this->belongsToMany('App\User', 'contacts');
-        return $this->belongsToMany('App\User', 'contacts', 'id', 'related_id');
-        // return $this->hasMany('App\User');
+        // return $this->belongsToMany('App\User');
     }
     // contact end
 }
