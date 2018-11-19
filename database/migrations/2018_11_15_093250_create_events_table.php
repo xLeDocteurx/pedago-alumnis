@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('location');
+            $table->integer('region_id');
             $table->date('date');
             $table->integer('author_id');
             $table->datetime('deleted_at')->nullable();

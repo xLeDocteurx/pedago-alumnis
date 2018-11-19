@@ -26,7 +26,7 @@ class Event extends Model
     }
 
     public function regions(){
-        return $this->belongsToMany('App\Region');
+        return $this->belongsTo('App\Region');
     }
 
     protected $date = ['deleted_at'];
