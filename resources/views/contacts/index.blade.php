@@ -35,37 +35,30 @@
                         @if (isset($conversation))
                             <div class="mesgs">
                                 <div class="msg_history">
+
+                                @foreach($incoming_messages as $message)
                                     <div class="incoming_msg">
                                         <div class="incoming_msg_img">
-                                            <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                                            <img src="https://ptetutorials.com/images/user-profile.png" alt="user avatar">
                                         </div>
                                         <div class="received_msg">
                                             <div class="received_withd_msg">
-                                                <p>Lorem ipsum dolor, aie aie aie, bobo bobo !</p>
+                                                <p>{{ $message->content }}</p>
                                                 <span class="time_date">{{ $conversation->name }} 11:01 AM    |    June 9</span>
                                             </div>
                                         </div>
                                     </div>
-    
+                                @endforeach
+
+                                @foreach($outgoing_messages as $message)
                                     <div class="outgoing_msg">
                                         <div class="sent_msg">
-                                            <p>Test which is a new approach to have all
-                                            solutions</p>
+                                            <p>{{ $message->content }}</p>
                                             <span class="time_date">11:01 AM    |    June 9</span>
                                         </div>
                                     </div>
-    
-                                    <div class="incoming_msg">
-                                        <div class="incoming_msg_img">
-                                            <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
-                                        </div>
-                                        <div class="received_msg">
-                                            <div class="received_withd_msg">
-                                                <p>Lorem ipsum dolor, aie aie aie, bobo</p>
-                                                <span class="time_date">{{ $conversation->name }} 11:01 AM    |    June 9</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                @endforeach
+
                                 </div>
     
                                 <div class="type_msg">

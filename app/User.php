@@ -47,12 +47,14 @@ class User extends Authenticatable
 
     public function messages_received()
     {
-        return $this->hasMany('App\Message');
+        // return $this->belongsToMany('App\User', 'contacts', 'relating_id', 'related_id');
+        return $this->belongsToMany('App\Message');
     }
     
     public function messages_sent()
     {
-        return $this->hasMany('App\Message');
+        // return $this->belongsToMany('App\User', 'contacts', 'relating_id', 'related_id');
+        return $this->belongsToMany('App\Message');
     }
 
     public function region()
