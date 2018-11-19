@@ -29,10 +29,17 @@ class EventsController extends Controller
 
     public function subscribe(Request $request, $id)
     {
-        $event = Event::find($id);
-        $event->subscribers()->attach($request->user()->id);
+        try {
+            $event = Event::find($id);
+            $event->subscribers()->attach($request->user()->id);
+    
+            return redirect()->route('events_show', $id);
+        }
+        catch (Exception $e) {
+            
+            return redirect()->route('events_show', $id);
+        }
 
-        return redirect()->route('events_show', $id);
     }
 
     public function unsubscribe(Request $request, $id)
