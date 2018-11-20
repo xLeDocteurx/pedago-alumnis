@@ -21,7 +21,7 @@
     <div class="row">
         <div class="mx-auto">{{ $events->links() }}</div>
         <div class="mx-auto">
-            <a class="btn btn-primary" href="{{ route('events_createEvent') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
+            <a class="btn btn-primary" href="{{ route('events_create') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
         </div>
     </div>
 
@@ -58,7 +58,7 @@
     <div class="row">
         <div class="mx-auto">{{ $events->links() }}</div>
         <div class="mx-auto">
-            <a class="btn btn-primary" href="{{ route('events_createEvent') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
+            <a class="btn btn-primary" href="{{ route('events_create') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
         </div>
     </div>
 
