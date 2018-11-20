@@ -10,7 +10,7 @@
                 <div class="card-header">{{ __('Créer une annonce') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('annonces_store') }}">
+                    <form method="POST" action="{{ route('annonces_storejob') }}">
                         @csrf
 
                         <div class="form-group row">

@@ -40,4 +40,21 @@ class JobsController extends Controller
 
         return view('events.create', compact('jobs','regions','today','nextYear'));
     }
+
+    public function storejob(Request $request)
+    {
+        dd('ikkgjkgjkfdhjc');
+
+        Job::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            // 'image_url' => $image_url,
+            'region_id' => $request->input('region_id'),
+            'location' => $request->input('location'),
+            'date' => $request->input('date'),
+            'author_id' => $request->user()->id,
+
+        ]);
+        return redirect()->route('annonces');
+    }
 }
