@@ -48,8 +48,9 @@
 
                     </div>
                     <div class="card-action text-right">
-                        <!--  Ajouter à sa liste de contacts -->
-                        <a class="btn btn-outline-primary" href="#" title="Ajouter à mes contacts">Ajouter à mes contacts <i class="fas fa-user-friends"></i></a>
+                        @if ($user->id !== Auth::user()->id)
+                            <a class="btn btn-outline-primary" href="#" title="Ajouter à mes contacts">Ajouter à mes contacts <i class="fas fa-user-friends"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>

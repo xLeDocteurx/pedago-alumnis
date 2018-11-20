@@ -31,6 +31,13 @@ class JobsController extends Controller
         return view('jobs.index', compact('annonces','annoncesList','regions', 'tags'));
     }
 
+    public function show($id)
+    {
+        $annonce = Job::findOrFail($id);
+
+        return view('jobs.show', compact('annonce'));
+    }
+
     public function create(Request $request)
     {
         $jobs =  Job::all();
@@ -43,7 +50,6 @@ class JobsController extends Controller
 
     public function storejob(Request $request)
     {
-        
         Job::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
