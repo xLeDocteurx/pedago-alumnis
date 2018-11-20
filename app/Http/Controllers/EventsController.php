@@ -7,6 +7,7 @@ use App\Event;
 use App\Region;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -18,18 +19,18 @@ class EventsController extends Controller
     public function index(Request $request)
     {
         if (isset($_GET['region_id'])) {
-            $eventlist = Event::where('region_id', $_GET['region_id'])->get();
-            $events = Event::where('region_id', $_GET['region_id'])->orderBy('id', 'desc')->paginate(5);
+            $eventlist = Event::where('region_id', $_GET['region_id'])->whereDate('date', '>=', date('Y-m-d'))->get();
+            $events = Event::where('region_id', $_GET['region_id'])->whereDate('date', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         } else {
-            $eventlist = Event::all();
-            $events = Event::orderBy('id', 'desc')->paginate(5);
+            $eventlist = Event::whereDate('date', '>=', date('Y-m-d'))->get();
+            $events = Event::whereDate('date', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         }
         
         $regions = Region::all();
 
         return view('events.index', compact('events','eventlist','regions'));
     }
-    
+
     public function show($id)
     {
         $event = Event::findOrFail($id);
@@ -78,9 +79,6 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-
-        // dd(Input::file('image'));
-        // dd($request->image);
 
         Event::create([
             'title' => $request->input('title'),

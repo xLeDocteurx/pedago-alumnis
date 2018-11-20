@@ -26,28 +26,32 @@
     </div>
 
     <div class="row justify-content-center">
-        @foreach($events as $event)
-        
-        <div class="col-10">
-            <div class="card my-3">
-                    <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->title}}">
-                <div class="card-header">
-                        <h3 class="mt-4 d-inline">{{$event->title}}</h3>
-                    <p class="text-right my-auto">
-                        <span class="badge p-2 badge-primary">{{ $event->region->name }}</span> A {{$event->location}} le {{$event->date}}
-                    </p>
-                </div>
-                    </a>
-                <div class="card-body">
-                <p class="my-4">{{$event->content}}</p> 
-                
-                <p class="text-right">Créé par <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">{{$event->author->name}}</a></p>
-                
+        @if(sizeof($events) > 0)
+            @foreach($events as $event)
+            
+            <div class="col-10">
+                <div class="card my-3">
+                        <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->title}}">
+                    <div class="card-header">
+                            <h3 class="mt-4 d-inline">{{$event->title}}</h3>
+                        <p class="text-right my-auto">
+                            <span class="badge p-2 badge-primary">{{ $event->region->name }}</span> A {{$event->location}} le {{$event->date}}
+                        </p>
+                    </div>
+                        </a>
+                    <div class="card-body">
+                    <p class="my-4">{!! nl2br(e($event->content)) !!}</p> 
+                    
+                    <p class="text-right">Créé par <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">{{$event->author->name}}</a></p>
+                    
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        @endforeach
+            
+            @endforeach
+        @else
+            <p class="text-center">Aucun évènement ne correspond à votre recherche</p>
+        @endif
     </div>
 
 

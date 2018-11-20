@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function show(Request $request, $id)
     {
         $user = User::find($id);
-        $events = $user->events()->get();
+        $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
         $myEvents = Event::where('author_id', $id)->get();
         return view('users.show', compact('user', 'events', 'myEvents'));
     }

@@ -18,17 +18,17 @@ class JobsController extends Controller
     public function index(Request $request)
     {
         if (isset($_GET['region_id'])) {
-            $joblist = Job::where('region_id', $_GET['region_id'])->get();
-            $jobs = Job::where('region_id', $_GET['region_id'])->orderBy('id', 'desc')->paginate(5);
+            $annoncesList = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+            $annonces = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         } else {
-            $joblist = Job::all();
-            $jobs = Job::orderBy('id', 'desc')->paginate(5);
+            $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+            $annonces = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         }
         
         $regions = Region::all();
         $tags = Tag::all();
 
-        return view('jobs.index', compact('jobs','joblist','regions', 'tags'));
+        return view('jobs.index', compact('annonces','annoncesList','regions', 'tags'));
     }
 
     public function create(Request $request)
