@@ -31,6 +31,13 @@ class JobsController extends Controller
         return view('jobs.index', compact('annonces','annoncesList','regions', 'tags'));
     }
 
+    public function show($id)
+    {
+        $annonce = Job::findOrFail($id);
+
+        return view('jobs.show', compact('annonce'));
+    }
+
     public function create(Request $request)
     {
         $jobs =  Job::all();
@@ -38,12 +45,11 @@ class JobsController extends Controller
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
 
-        return view('events.create', compact('jobs','regions','today','nextYear'));
+        return view('jobs.create', compact('jobs','regions','today','nextYear'));
     }
 
     public function storejob(Request $request)
     {
-        dd('ikkgjkgjkfdhjc');
 
         Job::create([
             'title' => $request->input('title'),

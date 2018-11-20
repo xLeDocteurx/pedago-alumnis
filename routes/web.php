@@ -37,7 +37,7 @@ Route::post('/contacts/{id}/send_message', 'ContactsController@send_message')->n
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
 
-// Route::get('/events/create', 'EventsController@create')->name('events_create');
+Route::get('/events/create', 'EventsController@create')->name('events_create');
 Route::post('/events/store', 'EventsController@store')->name('events_store');
 
 Route::get('/events/{id}', 'EventsController@show')->name('events_show');
