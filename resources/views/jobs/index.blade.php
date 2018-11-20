@@ -58,6 +58,8 @@
             </div>
             
             @endforeach
+        @else
+            <p class="text-center">Aucun évènement ne correspond à votre recherche</p>
         @endif
     </div>
 
