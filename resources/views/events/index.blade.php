@@ -39,7 +39,7 @@
                 </div>
                     </a>
                 <div class="card-body">
-                <p class="my-4">{{$event->content}}</p> 
+                <p class="my-4">{!! nl2br(e($event->content)) !!}</p> 
                 
                 <p class="text-right">Créé par <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">{{$event->author->name}}</a></p>
                 

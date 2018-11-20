@@ -23,7 +23,7 @@
                     </div>
                     <div class="card-body">
                         <p class="my-4">
-                            {{$event->content}}
+                            {!! nl2br(e($event->content)) !!}
                         </p> 
                         <p class="text-right">
                             Créé par 

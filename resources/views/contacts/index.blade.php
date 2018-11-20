@@ -66,7 +66,9 @@
                                         <div class="input_msg_write row">
                                         @csrf
                                             <div class="col-md-8">
-                                                <textarea id="message" name="message" type="text" class="write_msg col-md-10" placeholder="">Ecrivez un message...</textarea>
+                                                <textarea onkeypress="if(window.event.keyCode === 13){this.form.submit()}" id="message" name="message" type="text" class="write_msg col-md-10" placeholder="">
+
+                                                </textarea>
                                             </div>
                                             <div class="col-md-4">
                                                 <button class="d-inline btn btn-primary mt-3" type="submit">
