@@ -44,15 +44,25 @@ class ContactsController extends Controller
         foreach($outgoing_messages as $message){
             array_push($messages, $message);
         }
-        array_sort(function ($element) {
-            return $element->id;
+        // array_sort(function ($element) {
+        //     return $element->id;
+        // });
+        array_sort($messages, function () {
+            
         });
 
         return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'messages'));
     }
 
-    public function store(Request $request) 
+    public function send_message(Request $request, $id) 
     {
 
+        Message::create([
+            'sender_id' => $request->user()->id,
+            'receiver_id' => $id,
+            'content' => $request->input('message'),
+        ]);
+
+        return redirect()->route('contacts_show', $id);
     }
 }
