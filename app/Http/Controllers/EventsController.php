@@ -55,7 +55,6 @@ class EventsController extends Controller
         finally {
             return redirect()->route('events_show', $id);
         }
-
     }
 
     public function unsubscribe(Request $request, $id)

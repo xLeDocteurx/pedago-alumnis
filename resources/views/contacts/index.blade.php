@@ -31,56 +31,54 @@
                         </div>
                         
                         <div class="col-md-8">
-                        
-                        @if (isset($conversation))
-                            <div class="mesgs">
-                                <div class="msg_history">
+                            @if (isset($conversation))
+                                <div class="mesgs">
+                                    <div class="msg_history">
 
-                                @foreach($messages as $message)
-                                    @if ($message->receiver_id == Auth::user()->id)
-                                        <div class="incoming_msg">
-                                            <div class="incoming_msg_img">
-                                                <img src="https://ptetutorials.com/images/user-profile.png" alt="user avatar">
-                                            </div>
-                                            <div class="received_msg">
-                                                <div class="received_withd_msg">
-                                                    <p>{{ $message->content }}</p>
-                                                    <span class="time_date">{{ $conversation->name }} {{ $message->created_at }}</span>
+                                    @foreach($messages as $message)
+                                        @if ($message->receiver_id == Auth::user()->id)
+                                            <div class="incoming_msg">
+                                                <div class="incoming_msg_img">
+                                                    <img src="https://ptetutorials.com/images/user-profile.png" alt="user avatar">
+                                                </div>
+                                                <div class="received_msg">
+                                                    <div class="received_withd_msg">
+                                                        <p>{{ $message->content }}</p>
+                                                        <span class="time_date">{{ $conversation->name }} {{ $message->created_at }}</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    @else    
-                                        <div class="outgoing_msg">
-                                            <div class="sent_msg">
-                                                <p>{{ $message->content }}</p>
-                                                <span class="time_date">{{ $message->created_at }}</span>
+                                        @else    
+                                            <div class="outgoing_msg">
+                                                <div class="sent_msg">
+                                                    <p>{{ $message->content }}</p>
+                                                    <span class="time_date">Moi {{ $message->created_at }}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endif    
-                                @endforeach
+                                        @endif    
+                                    @endforeach
 
-                                </div>
-    
-                                <div class="type_msg">
-                                    <form method="POST" action="{{ route('send_message', $conversation->id) }}">
-                                        <div class="input_msg_write row">
-                                        @csrf
-                                            <div class="col-md-8">
-                                                <textarea onkeypress="if(window.event.keyCode === 13){this.form.submit()}" id="message" name="message" type="text" class="write_msg col-md-10" placeholder="">
+                                    </div>
+        
+                                    <div class="type_msg">
+                                        <form method="POST" action="{{ route('send_message', $conversation->id) }}">
+                                            <div class="input_msg_write row">
+                                            @csrf
+                                                <div class="col-md-8">
+                                                    <textarea onkeypress="if(window.event.keyCode === 13){this.form.submit()}" id="message" name="message" type="text" class="write_msg col-md-10" placeholder="">
 
-                                                </textarea>
+                                                    </textarea>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="d-inline btn btn-primary mt-3" type="submit">
+                                                        Envoyer <i class="fas fa-share-square"></i>
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <button class="d-inline btn btn-primary mt-3" type="submit">
-                                                    Envoyer <i class="fas fa-share-square"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
-    
+                            @endif
                         </div>
                     </div>
 

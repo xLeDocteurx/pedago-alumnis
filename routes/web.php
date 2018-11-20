@@ -29,22 +29,19 @@ Route::get('/users/{id}', 'UsersController@show')->name('users_show');
 
 //contacts routes
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
-
+Route::get('/users/{id}/addFriend', 'ContactsController@addFriend')->name('contacts_addFriend');
+Route::get('/contacts/{id}/removeFriend', 'ContactsController@removeFriend')->name('contacts_removeFriend');
 Route::get('/contacts/{id}', 'ContactsController@show')->name('contacts_show');
-
 Route::post('/contacts/{id}/send_message', 'ContactsController@send_message')->name('send_message');
 
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
-
 Route::get('/events/create', 'EventsController@create')->name('events_create');
 Route::post('/events/store', 'EventsController@store')->name('events_store');
-
 Route::get('/events/{id}', 'EventsController@show')->name('events_show');
 Route::get('/events/{id}/delete', 'EventsController@delete')->name('events_delete');
 Route::get('/events/{id}/subscribe', 'EventsController@subscribe')->name('events_subscribe');
 Route::get('/events/{id}/unsubscribe', 'EventsController@unsubscribe')->name('events_unsubscribe');
-
 Route::get('/events/{id}/update', 'EventsController@update')->name('events_update');
 Route::post('/events/{id}/update_store', 'EventsController@storeUpdate')->name('events_storeupdate');
 

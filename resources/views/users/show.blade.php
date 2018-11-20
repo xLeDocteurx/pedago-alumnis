@@ -49,7 +49,11 @@
                     </div>
                     <div class="card-action text-right">
                         @if ($user->id !== Auth::user()->id)
-                            <a class="btn btn-outline-primary" href="#" title="Ajouter à mes contacts">Ajouter à mes contacts <i class="fas fa-user-friends"></i></a>
+                                @if ($user->isFriend)
+                                    <a class="btn btn-outline-primary" href="{{ route('contacts_removeFriend', $user->id) }}" title="Retirer de mes contacts">Retirer de mes contacts <i class="fas fa-user-friends"></i></a>
+                                @else
+                                    <a class="btn btn-outline-primary" href="{{ route('contacts_addFriend', $user->id) }}" title="Ajouter à mes contacts">Ajouter à mes contacts <i class="fas fa-user-friends"></i></a>
+                                @endif
                         @endif
                     </div>
                 </div>
