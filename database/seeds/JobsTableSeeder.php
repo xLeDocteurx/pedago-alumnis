@@ -14,6 +14,7 @@ class JobsTableSeeder extends Seeder
         DB::table('jobs')->insert([
             'company' => 'Entreprise 1',
             'region_id' => 1,
+            'location' => 'Quelque part',
             'title' => 'Titre n°1',
             'content' => 'premier contenu',
             'author_id' => 1,
@@ -23,6 +24,7 @@ class JobsTableSeeder extends Seeder
         DB::table('jobs')->insert([
             'company' => 'Entreprise 2',
             'region_id' => 2,
+            'location' => 'Quelque part',
             'title' => 'Titre n°2',
             'content' => 'Deuxieme contenu',
             'author_id' => 2,
@@ -32,6 +34,7 @@ class JobsTableSeeder extends Seeder
         DB::table('jobs')->insert([
             'company' => 'Entreprise 3',
             'region_id' => 3,
+            'location' => 'Quelque part',
             'title' => 'Titre n°3',
             'content' => 'Troisieme contenu',
             'author_id' => 3,

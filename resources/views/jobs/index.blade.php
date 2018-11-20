@@ -4,7 +4,7 @@
 
 
 <div class="container">
-
+    
     <div class="row">
         <form action="{{ route('annonces') }}" method="get" class="mb-4">
         @csrf
@@ -24,56 +24,48 @@
                 @endforeach
             </select>
         </form>
+
     </div>
 
     <div class="row">
-        <div class="mx-auto">{{ $jobs->links() }}</div>
+        <div class="mx-auto">{{ $annonces->links() }}</div>
         <div class="mx-auto">
-            <a class="btn btn-primary" href="{{ route('annonces_create') }}" title="{{ __('Ajouter une annonce') }}">Ajouter une annonce <i class="fas fa-plus-circle"></i></a>
+            <a class="btn btn-primary" href="{{ route('annonces_create') }}" title="{{ __('Ajouter une annonce') }}">Ajouter une annonce <i class="fas fa-plus-circle"></i></a>    
         </div>
     </div>
 
     <div class="row justify-content-center">
-        @if (sizeof($jobs) > 0)
-            @foreach($jobs as $job)
-                <div class="col-10">
-                    <div class="card my-3">
-                        <a class="nounderline" href="{{ route('annonces_show', $job->id) }}" title="{{$job->title}}">
-                            <div class="card-header">
-                                <h3 class="mt-4 d-inline">{{$job->title}}</h3>
-                                <p class="text-right my-auto">
-                                    <span class="badge p-2 badge-primary">{{ $job->region->name }}</span> A {{$job->location}} le {{$job->date}}
-                                </p>
-                            </div>
-                        </a>    
-                        <div class="card-body">
-                        <p class="my-4">{{$job->content}}</p> 
-                        
-                        <p class="text-right">Créé par <a href="{{ route('users_show', $job->author->id) }}" title="{{$job->author->name}} profile">{{$job->author->name}}</a></p>
-                        
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        @else
+        @if(sizeof($annonces) > 0)
+            @foreach($annonces as $annonce)
+            
             <div class="col-10">
                 <div class="card my-3">
+                        <a class="nounderline" href="{{ route('annonces_show', $annonce->id) }}" title="{{$annonce->title}}">
                     <div class="card-header">
-                        <h3 class="mt-4 d-inline">Il n'y a aucune annonce correspondant à vos critères</h3>
+                            <h3 class="mt-4 d-inline">{{$annonce->title}}</h3>
+                        <p class="text-right my-auto">
+                            <span class="badge p-2 badge-primary">{{ $annonce->region->name }}</span> A {{$annonce->location}} le {{$annonce->outdated_at}}
+                        </p>
                     </div>
+                        </a>
                     <div class="card-body">
-                        #Sad #Marqui 
+                    <p class="my-4">{!! nl2br(e($annonce->content)) !!}</p> 
+                    
+                    <p class="text-right">Créé par <a href="{{ route('users_show', $annonce->author->id) }}" title="{{$annonce->author->name}} profile">{{$annonce->author->name}}</a></p>
+                    
                     </div>
                 </div>
             </div>
+            
+            @endforeach
         @endif
     </div>
 
 
     <div class="row">
-        <div class="mx-auto">{{ $jobs->links() }}</div>
+        <div class="mx-auto">{{ $annonces->links() }}</div>
         <div class="mx-auto">
-            <a class="btn btn-primary" href="{{ route('annonces_create') }}" title="{{ __('Ajouter un évènement') }}">Ajouter un évènement <i class="fas fa-plus-circle"></i></a>    
+            <a class="btn btn-primary" href="{{ route('annonces_create') }}" title="{{ __('Ajouter une annonce') }}">Ajouter une annonce <i class="fas fa-plus-circle"></i></a>    
         </div>
     </div>
 
