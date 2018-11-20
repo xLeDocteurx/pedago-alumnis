@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="outdated_at" class="col-md-4 col-form-label text-md-right">{{ __('outdated_at de l\'annonce) }}</label>
+                            <label for="outdated_at" class="col-md-4 col-form-label text-md-right">{{ __('date de l\'annonce') }}</label>
 
                             <div class="col-md-6">
                                 <input id="outdated_at" type="date" min="{{$today}}" max="{{$nextYear}}" class="form-control{{ $errors->has('outdated_at') ? ' is-invalid' : '' }}" name="outdated_at" value="{{ old('outdated_at') }}" required autofocus>

@@ -33,7 +33,7 @@
                             @if (isset($conversation))
                                 <div class="row">
                                     <div class="col-12 text-center">
-                                        <a class="btn btn-outline-primary" href="{{ route('users_show', $conversation->id) }}" title="Profil de {{ $conversation->name }}">Profil de {{ $conversation->name }}</a>
+                                        <a class="btn btn-outline-primary" href="{{ route('users_show', $user->name) }}" title="Profil de {{ $conversation->name }}">Profil de {{ $conversation->name }}</a>
                                     </div>
                                 </div>
                                 <div class="mesgs">
@@ -95,7 +95,7 @@
                         @foreach($in_contacts as $contact)
                         
                             <div class="col-12">
-                                <a class="nounderline" href="{{ route('users_show', $contact->id) }}" title="{{$contact->name}}">
+                                <a class="nounderline" href="{{ route('users_show', $contact->name) }}" title="{{$contact->name}}">
                                     <div class="card mt-3">
                                         <div class="card-header">
                                                     <h4 class="mt-4 d-inline">{{$contact->name}}</h4>

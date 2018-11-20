@@ -12,7 +12,7 @@
         @foreach($users as $user)
         
         <div class="col-10">
-            <a class="nounderline" href="{{ route('users_show', $user->id) }}" title="{{$user->name}}">
+            <a class="nounderline" href="{{ route('users_show', $user->name) }}" title="{{$user->name}}">
                 <div class="card my-3">
                     <div class="card-header">
                                 <h4 class="mt-4 d-inline">{{$user->name}}</h4>

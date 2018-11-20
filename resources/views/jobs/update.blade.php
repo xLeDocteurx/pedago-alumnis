@@ -7,17 +7,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h3 class="my-auto text-center">{{ __('Modifier votre annonce') }}</h3> </div>
+                <div class="card-header"><h3 class="my-auto text-center">{{ __('Modifier votre annonce emploi') }}</h3> </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events_storeupdate',$event->id) }}">
+                    <form method="POST" action="{{ route('annonces_storeupdate',$annonce->id) }}">
                         @csrf
 
                         <div class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Titre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ $event->title }}" required autofocus>
+                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ $annonce->title }}" required autofocus>
 
                                 @if ($errors->has('title'))
                                     <span class="invalid-feedback" role="alert">
@@ -31,11 +31,25 @@
                             <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Contenu') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="content" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" value="{{ old('content') }}" required autofocus>{{ $event->content }}</textarea>
+                                <textarea id="content" class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" name="content" value="{{ old('content') }}" required autofocus>{{ $annonce->content }}</textarea>
 
                                 @if ($errors->has('content'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('content') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="company" class="col-md-4 col-form-label text-md-right">{{ __('Entreprise') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="company" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}" name="company" value="{{ old('company') }}" required autofocus>{{ $annonce->company }}</textarea>
+
+                                @if ($errors->has('company'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('company') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -63,7 +77,7 @@
                             <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Ville') }}</label>
 
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ $event->location }}" required autofocus>
+                                <input id="location" type="text" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ $annonce->location }}" required autofocus>
 
                                 @if ($errors->has('location'))
                                     <span class="invalid-feedback" role="alert">
@@ -74,14 +88,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date de l\'evenement') }}</label>
+                            <label for="outdated_at" class="col-md-4 col-form-label text-md-right">{{ __('date de l\'annonce') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="date" min="{{$today}}" max="{{$nextYear}}" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ $event->date }}" required autofocus>
+                                <input id="outdated_at" type="date" min="{{$today}}" max="{{$nextYear}}" class="form-control{{ $errors->has('outdated_at') ? ' is-invalid' : '' }}" name="outdated_at" value="{{ $annonce->outdated_at }}" required autofocus>
 
-                                @if ($errors->has('date'))
+                                @if ($errors->has('outdated_at'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('date') }}</strong>
+                                        <strong>{{ $errors->first('outdated_at') }}</strong>
                                     </span>
                                 @endif
                             </div>

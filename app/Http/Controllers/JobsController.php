@@ -57,8 +57,8 @@ class JobsController extends Controller
             // 'image_url' => $image_url,
             'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
-            'outdated_at' => $request->input('date'),
-            'refreshed_at' => $request->input('date'),
+            'outdated_at' => $request->input('outdated_at'),
+            'refreshed_at' => $request->input('outdated_at'),
             'author_id' => $request->user()->id,
 
         ]);
@@ -67,11 +67,35 @@ class JobsController extends Controller
 
     public function delete(Request $request, $id)
     {
+        $annonce = Job::findOrfail($id)->delete();
 
+        return redirect()->route('annonces');
     }
 
     public function update(Request $request, $id)
     {
+        $annonce = Job::findOrfail($id);
+        $today = date('Y-m-d');
+        $nextYear = date('Y-m-d',strtotime('+1 year'));
+        $regions = Region::all();
+        return view('jobs.update', compact('regions','annonce','today','nextYear'));
 
+    }
+
+    public function storeUpdate(Request $request, $id)
+    {
+        // dd($request->input('outdated_at'));
+        $annonce = Job::findOrfail($id);
+        $annonce->update([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'company' => $request->input('company'),
+            'region_id' => $request->input('region_id'),
+            'location' => $request->input('location'),
+            'outdated_at' => $request->input('outdated_at'),
+            'refreshed_at' => $request->input('outdated_at'),
+            'author_id' => $request->user()->id,
+        ]);
+        return redirect()->route('annonces');
     }
 }

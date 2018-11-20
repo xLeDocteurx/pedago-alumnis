@@ -18,15 +18,16 @@ class UsersController extends Controller
         return view('users.index', compact('users'));
     }
 
-    public function show(Request $request, $id)
+    public function show(Request $request, $name)
     {
-        $user = User::find($id);
+        $user = User::where(['name' => $name])->first();
+        if($user == null){return redirect()->route('badboy');}
         $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
-        $myEvents = Event::where('author_id', $id)->get();
+        $myEvents = Event::where('author_id', $user->id)->get();
 
         $friends_ids = $request->user()->relate->pluck('id')->all();
 
-        if(in_array($id, $friends_ids)) {
+        if(in_array($user->id, $friends_ids)) {
             $user->isFriend = true;
         } else {
             $user->isFriend = false;
