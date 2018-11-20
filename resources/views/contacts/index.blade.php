@@ -62,14 +62,19 @@
                                 </div>
     
                                 <div class="type_msg">
-                                    <div class="input_msg_write row">
-                                        <input type="text" class="write_msg col-md-10" placeholder="Ecrivez un message..." />
-                                        <div class="col-md-2">
-                                            <button class="d-inline btn btn-primary mt-3" type="button">
-                                                Envoyer <i class="fas fa-share-square"></i>
-                                            </button>
+                                    <form method="POST" action="{{ route('send_message', $conversation->id) }}">
+                                        <div class="input_msg_write row">
+                                        @csrf
+                                            <div class="col-md-8">
+                                                <textarea id="message" name="message" type="text" class="write_msg col-md-10" placeholder="">Ecrivez un message...</textarea>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="d-inline btn btn-primary mt-3" type="submit">
+                                                    Envoyer <i class="fas fa-share-square"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         @endif

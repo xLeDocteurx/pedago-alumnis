@@ -32,6 +32,8 @@ Route::get('/contacts', 'ContactsController@index')->name('contacts');
 
 Route::get('/contacts/{id}', 'ContactsController@show')->name('contacts_show');
 
+Route::post('/contacts/{id}/send_message', 'ContactsController@send_message')->name('send_message');
+
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
 
@@ -44,7 +46,7 @@ Route::get('/events/{id}/subscribe', 'EventsController@subscribe')->name('events
 Route::get('/events/{id}/unsubscribe', 'EventsController@unsubscribe')->name('events_unsubscribe');
 
 Route::get('/events/{id}/update', 'EventsController@update')->name('events_update');
-Route::post('/events/{id}/storeupdate', 'EventsController@storeUpdate')->name('events_storeupdate');
+Route::post('/events/{id}/update_store', 'EventsController@storeUpdate')->name('events_storeupdate');
 
 //jobs routes
 Route::get('/annonces', 'JobsController@index')->name('annonces');
