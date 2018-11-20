@@ -38,23 +38,42 @@ class JobsController extends Controller
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
 
-        return view('events.create', compact('jobs','regions','today','nextYear'));
+        return view('jobs.create', compact('jobs','regions','today','nextYear'));
     }
 
     public function storejob(Request $request)
     {
-        dd('ikkgjkgjkfdhjc');
-
+        
         Job::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'company' => $request->input('company'),
             // 'image_url' => $image_url,
             'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
-            'date' => $request->input('date'),
+            'outdated_at' => $request->input('date'),
+            'refreshed_at' => $request->input('date'),
             'author_id' => $request->user()->id,
 
         ]);
         return redirect()->route('annonces');
+    }
+
+    public function show (Request $request, $id)
+    {
+        $annonce = Job::findOrfail($id);
+        $region = Region::all();
+
+        return view('jobs.show', compact('annonce','region'));
+    }
+
+    public function delete(Request $request, $id)
+    {
+
+    }
+
+    public function update(Request $request, $id)
+    {
+
     }
 }

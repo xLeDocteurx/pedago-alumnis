@@ -34,6 +34,7 @@
                                 @endif
                             </div>
                         </div>
+                        
 
                         <div class="form-group row">
                             <label for="content" class="col-md-4 col-form-label text-md-right">{{ __('Contenu') }}</label>
@@ -44,6 +45,20 @@
                                 @if ($errors->has('content'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('content') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="company" class="col-md-4 col-form-label text-md-right">{{ __('Entreprise') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="company" value="{{ old('company') }}" required autofocus>
+
+                                @if ($errors->has('company'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('company') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -82,14 +97,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date de l\'evenement') }}</label>
+                            <label for="outdated_at" class="col-md-4 col-form-label text-md-right">{{ __('outdated_at de l'annonce) }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="date" min="{{$today}}" max="{{$nextYear}}" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" name="date" value="{{ old('date') }}" required autofocus>
+                                <input id="outdated_at" type="outdated_at" min="{{$today}}" max="{{$nextYear}}" class="form-control{{ $errors->has('outdated_at') ? ' is-invalid' : '' }}" name="outdated_at" value="{{ old('outdated_at') }}" required autofocus>
 
-                                @if ($errors->has('date'))
+                                @if ($errors->has('outdated_at'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('date') }}</strong>
+                                        <strong>{{ $errors->first('outdated_at') }}</strong>
                                     </span>
                                 @endif
                             </div>

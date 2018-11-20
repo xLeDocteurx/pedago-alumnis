@@ -31,20 +31,7 @@
                                 {{$annonce->author->name}}
                             </a>
                         </p>
-                        <p class="my-4">
-                            <h4>Personnes intéressées :</h4>
-
-                            @foreach($annonce->subscribers as $subscriber)
-                                <a class="nounderline" href="{{ route('users_show', $subscriber->id) }}" title="{{$subscriber->name}}">
-                                    <div class="card mt-3">
-                                        <div class="card-header">
-                                                    <h4 class="mt-4 d-inline">{{$subscriber->name}}</h4>
-                                                <!-- <p class="text-right my-auto"> A {{$subscriber->location}} le {{$subscriber->date}}</p> -->
-                                        </div>
-                                    </div>
-                                </a>
-                            @endforeach
-                        </p> 
+                         
                     </div>
                     <div class="card-action text-right">
                             @if ($annonce->author->id !== Auth::user()->id)
