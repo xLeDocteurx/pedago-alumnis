@@ -50,17 +50,28 @@ class JobsController extends Controller
 
     public function storejob(Request $request)
     {
-
         Job::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
+            'company' => $request->input('company'),
             // 'image_url' => $image_url,
             'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
-            'date' => $request->input('date'),
+            'outdated_at' => $request->input('date'),
+            'refreshed_at' => $request->input('date'),
             'author_id' => $request->user()->id,
 
         ]);
         return redirect()->route('annonces');
+    }
+
+    public function delete(Request $request, $id)
+    {
+
+    }
+
+    public function update(Request $request, $id)
+    {
+
     }
 }
