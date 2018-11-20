@@ -65,14 +65,6 @@ class JobsController extends Controller
         return redirect()->route('annonces');
     }
 
-    public function show (Request $request, $id)
-    {
-        $annonce = Job::findOrfail($id);
-        $region = Region::all();
-
-        return view('jobs.show', compact('annonce','region'));
-    }
-
     public function delete(Request $request, $id)
     {
 
