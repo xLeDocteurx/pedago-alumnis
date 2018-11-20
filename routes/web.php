@@ -53,5 +53,6 @@ Route::get('/annonces', 'JobsController@index')->name('annonces');
 Route::get('/annonces/create', 'JobsController@create')->name('annonces_create');
 Route::post('/annonces/storejob', 'JobsController@storejob')->name('annonces_storejob');
 Route::get('/annonces/{id}', 'JobsController@show')->name('annonces_show');
-Route::get('/annonces/delete', 'JobsController@delete')->name('annonces_delete');
-Route::get('/annonces/update', 'JobsController@update')->name('annonces_update');
+Route::get('/annonces/{id}/update', 'JobsController@update')->name('annonces_update');
+Route::get('/annonces/{id}/delete', 'JobsController@delete')->name('annonces_delete');
+Route::post('/annonces/{id}/storeupdate', 'JobsController@storeUpdate')->name('annonces_storeupdate');

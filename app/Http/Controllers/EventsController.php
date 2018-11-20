@@ -35,6 +35,7 @@ class EventsController extends Controller
     {
         $event = Event::findOrFail($id);
         $subscribers_ids = $event->subscribers->pluck('id')->all();
+        $regions = Region::all();
 
         if(in_array(Auth::user()->id, $subscribers_ids)) {
             $event->participating = true;
@@ -42,7 +43,7 @@ class EventsController extends Controller
             $event->participating = false;
         }
 
-        return view('events.show', compact('event'));
+        return view('events.show', compact('event','regions'));
     }
 
     public function subscribe(Request $request, $id)
@@ -104,8 +105,8 @@ class EventsController extends Controller
         $event = Event::findOrfail($id);
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
-
         $regions = Region::all();
+        
 
         return view('events.update' ,compact('event','today','nextYear','regions'));
     }
