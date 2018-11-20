@@ -29,7 +29,7 @@
     <div class="row">
         <div class="mx-auto">{{ $jobs->links() }}</div>
         <div class="mx-auto">
-            <a class="btn btn-primary" href="{{ route('annonces_create') }}" title="{{ __('Ajouter une annonce') }}">Ajouter une annonce <i class="fas fa-plus-circle"></i></a>    
+            <a class="btn btn-primary" href="{{ route('annonces_create') }}" title="{{ __('Ajouter une annonce') }}">Ajouter une annonce <i class="fas fa-plus-circle"></i></a>
         </div>
     </div>
 

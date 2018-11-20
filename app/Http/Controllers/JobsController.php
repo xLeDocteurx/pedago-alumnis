@@ -30,4 +30,14 @@ class JobsController extends Controller
 
         return view('jobs.index', compact('jobs','joblist','regions', 'tags'));
     }
+
+    public function create(Request $request)
+    {
+        $jobs =  Job::all();
+        $regions = Region::all();
+        $today = date('Y-m-d');
+        $nextYear = date('Y-m-d',strtotime('+1 year'));
+
+        return view('events.create', compact('jobs','regions','today','nextYear'));
+    }
 }
