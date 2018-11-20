@@ -7,14 +7,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Créer un évènement') }}</div>
+                <div class="card-header">{{ __('Créer une annonce') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events_store') }}">
+                    <form method="POST" action="{{ route('annonces_store') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Titre') }}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
 
                             <div class="col-md-6">
                                 <input id="image" name="image" type="file" class="form-control" value="{{ old('image') }}">

@@ -48,5 +48,6 @@ Route::post('/events/{id}/storeupdate', 'EventsController@storeUpdate')->name('e
 
 //jobs routes
 Route::get('/annonces', 'JobsController@index')->name('annonces');
-Route::get('/annonces/{id}', 'JobsController@index')->name('annonces_show');
-Route::get('/annonces/create', 'JobsController@index')->name('annonces_create');
+Route::get('/annonces/create', 'JobsController@create')->name('annonces_create');
+Route::post('annonces/store', 'JobsController@store')->name('annonces_store');
+Route::get('/annonces/{id}', 'JobsController@show')->name('annonces_show');

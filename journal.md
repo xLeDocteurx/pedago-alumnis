@@ -28,6 +28,9 @@ Journal de bord :
     Probleme :	problemes de routes quelques conflits non identifiés.
 
 19/11/2018:
+    produit : évenements finis a 90%
+    Prévu : fin des évenements avec l'ajout d'image.
+    Probleme :	RAS
 
 20/11/2018:
 
