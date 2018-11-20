@@ -44,12 +44,13 @@ class ContactsController extends Controller
         foreach($outgoing_messages as $message){
             array_push($messages, $message);
         }
-        // array_sort(function ($element) {
-        //     return $element->id;
-        // });
-        array_sort($messages, function () {
-            
+        
+        usort($messages, function ($e1, $e2) {
+            return $e1->id - $e2->id;
         });
+        // array_sort($messages, function () {
+            
+        // });
 
         return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'messages'));
     }
@@ -64,5 +65,19 @@ class ContactsController extends Controller
         ]);
 
         return redirect()->route('contacts_show', $id);
+    }
+
+    public function addFriend(Request $request, $id) {
+        
+        $contact = User::findOrfail($id);
+        $request->user()->relate()->attach($contact);
+        return redirect()->route('users_show', $id);
+    }
+
+    public function removeFriend(Request $request, $id) {
+        
+        $contact = User::findOrfail($id);
+        $request->user()->relate()->detach($contact);
+        return redirect()->route('users_show', $id);
     }
 }

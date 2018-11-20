@@ -23,6 +23,15 @@ class UsersController extends Controller
         $user = User::find($id);
         $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
         $myEvents = Event::where('author_id', $id)->get();
+
+        $friends_ids = $request->user()->relate->pluck('id')->all();
+
+        if(in_array($id, $friends_ids)) {
+            $user->isFriend = true;
+        } else {
+            $user->isFriend = false;
+        }
+
         return view('users.show', compact('user', 'events', 'myEvents'));
     }
 }
