@@ -34,4 +34,16 @@ class UsersController extends Controller
 
         return view('users.show', compact('user', 'events', 'myEvents'));
     }
+
+    public function update(Request $request)
+    {
+
+        $user = Auth::user();
+        return view('users.update', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+
+    }
 }

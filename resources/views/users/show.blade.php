@@ -9,7 +9,10 @@
             <div class="col-10">
                 <div class="card my-4">
                     <div class="card-header">
-                            <h3 class="mt-2"> {{$user->name}}</h3>
+                            <h3 class="d-inline mt-2"> {{$user->name}}</h3>
+                            @if ($user->id === Auth::user()->id)
+                                <a class="btn btn-warning" href="{{ route('users_update', Auth::user()->id) }}" title="Editer le profil">Editer le profil</a>
+                            @endif
                             <!-- <p class="text-right my-auto"> A {{$user->location}} le {{$user->date}}</p> -->
                     </div>
                     <div class="card-body">

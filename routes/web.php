@@ -26,6 +26,8 @@ Route::get('/badboy', 'HomeController@badboy')->name('badboy');
 //users routes
 Route::get('/users', 'UsersController@index')->name('users');
 Route::get('/users/{id}', 'UsersController@show')->name('users_show');
+Route::get('/users/{id}/update', 'UsersController@update')->name('users_update');
+Route::post('/users/store', 'UsersController@store')->name('users_store');
 
 //contacts routes
 Route::get('/contacts', 'ContactsController@index')->name('contacts');
@@ -33,6 +35,7 @@ Route::get('/users/{id}/addFriend', 'ContactsController@addFriend')->name('conta
 Route::get('/contacts/{id}/removeFriend', 'ContactsController@removeFriend')->name('contacts_removeFriend');
 Route::get('/contacts/{id}', 'ContactsController@show')->name('contacts_show');
 Route::post('/contacts/{id}/send_message', 'ContactsController@send_message')->name('send_message');
+Route::get('/contacts/{id}/remove_message/{message_id}', 'ContactsController@remove_message')->name('remove_message');
 
 //events routes
 Route::get('/events', 'EventsController@index')->name('events');
