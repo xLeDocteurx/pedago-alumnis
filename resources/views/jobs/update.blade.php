@@ -59,11 +59,14 @@
                             <label for="region_id" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
 
                             <div class="col-md-6">
-                                <p>{{$annonce->region}}</p>
+                                
                                 <select id="region_id" name="region_id" class="form-control{{ $errors->has('region_id') ? ' is-invalid' : '' }}" required autofocus>
                                     
                                     @foreach ($regions as $region)
-                                        <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                        <option value="{{ $region->id }}"
+                                            @if($region->id == $annonce->region_id)
+                                            selected
+                                            @endif>{{ $region->name }}</option>
                                             
                                     @endforeach
                                     
