@@ -11,11 +11,11 @@ class TagUserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_tag')->insert([
+        DB::table('tag_user')->insert([
             'tag_id' => 5,
             'user_id' => 1,
         ]);
-        DB::table('user_tag')->insert([
+        DB::table('tag_user')->insert([
             'tag_id' => 5,
             'user_id' => 2,
         ]);

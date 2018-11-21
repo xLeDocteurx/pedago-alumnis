@@ -38,8 +38,14 @@
                                 <a class="nounderline" href="{{ route('users_show', $subscriber->name) }}" title="{{$subscriber->name}}">
                                     <div class="card mt-3">
                                         <div class="card-header">
-                                                    <h4 class="mt-4 d-inline">{{$subscriber->name}}</h4>
+                                                    <h4 class="mt-4 d-inline">{{$subscriber->nom}} {{$subscriber->prenom}}</h4>
                                                 <!-- <p class="text-right my-auto"> A {{$subscriber->location}} le {{$subscriber->date}}</p> -->
+                                                <!-- @if($user->region)
+                                                    <span class="text-left badge p-2 badge-secondary">{{$user->region->name}}</span>
+                                                @endif
+                                                @foreach($user->roles as $role)
+                                                    <span class="text-left badge p-2 badge-primary">{{$role->name}}</span>
+                                                @endforeach -->
                                         </div>
                                     </div>
                                 </a>

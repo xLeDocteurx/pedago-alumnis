@@ -37,11 +37,25 @@ class JobsController extends Controller
     public function show(Request $request, $id)
     {
         $annonce = Job::findOrFail($id);
-        $jobtag = $annonce->tags->all();
-        if($request->user()->id == $annonce->author_id) {
-            $suggestions = ['1','2'];
+        $jobtags = $annonce->tags;
+        $suggestions = [];
+
+        foreach($jobtags as $jobtag){
+            foreach($jobtag->users as $user){
+                array_push($suggestions, $user);
+            }
         }
-        return view('jobs.show', compact('annonce','jobtag', 'suggestions'));
+
+        $sizeof = sizeof($suggestions);
+        $suggestions_ids = array_rand($suggestions, sizeof($suggestions));
+
+        $suggestions_bis = [];
+        foreach($suggestions_ids as $suggestion_id){
+            array_push($suggestions_bis, $suggestions[$suggestion_id]);
+        }
+        $suggestions = $suggestions_bis;
+
+        return view('jobs.show', compact('annonce', 'jobtag', 'suggestions'));
     }
 
     public function create(Request $request)

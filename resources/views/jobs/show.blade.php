@@ -42,12 +42,23 @@
                         <h4>Ces profils pourraient vous interesser</h4>
                     </div>
                     <div class="card-body">
-                        @foreach($suggestions as suggestion)
-                            {{ $suggestion }}
-                        @endforeach
-                    </div>
-                    <div class="card-action">
-                        action
+
+                        @for($i = 0; $i < 5 && $i < sizeof($suggestions); $i++)
+                            <a class="nounderline" href="{{ route('users_show', $suggestions[$i]->name) }}" title="Profil de {{ $suggestions[$i]->nom }} {{ $suggestions[$i]->prenom }}">
+                                <div class="card mt-3">
+                                    <div class="card-header">
+                                        <h4 class="mt-4 d-inline">{{ $suggestions[$i]->nom }} {{ $suggestions[$i]->prenom }}</h4>
+                                        @if($suggestions[$i]->region)
+                                            <span class="text-left badge p-2 badge-secondary">{{$suggestions[$i]->region->name}}</span>
+                                        @endif
+                                        @foreach($suggestions[$i]->roles as $role)
+                                            <span class="text-left badge p-2 badge-primary">{{$role->name}}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </a>
+                        @endfor
+
                     </div>
                 </div>
             </div>

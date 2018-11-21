@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     public function jobs(){
-        return $this->hasMany('App\Job');
+        return $this->belongsToMany('App\Job');
     }
     public function users(){
-        return $this->hasMany('App\User');
+        return $this->belongsToMany('App\User');
     }
     public function tagfamily(){
         return $this->belongsTo('App\Tagfamily');
