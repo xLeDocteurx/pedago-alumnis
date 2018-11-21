@@ -34,8 +34,8 @@ class ContactsController extends Controller
 
         $conversation = User::find($id);
         
-        $incoming_messages = Message::where('sender_id', $id)->where('receiver_id', $request->user()->id)->get();
-        $outgoing_messages = Message::where('receiver_id', $id)->where('sender_id', $request->user()->id)->get();
+        $incoming_messages = Message::where('sender_id', $id)->where('receiver_id', $request->user()->id)->orderBy('id', 'asc')->paginate(10);
+        $outgoing_messages = Message::where('receiver_id', $id)->where('sender_id', $request->user()->id)->orderBy('id', 'asc')->paginate(10);
         
         $messages = [];
         foreach($incoming_messages as $message){
@@ -44,40 +44,40 @@ class ContactsController extends Controller
         foreach($outgoing_messages as $message){
             array_push($messages, $message);
         }
-        
         usort($messages, function ($e1, $e2) {
             return $e1->id - $e2->id;
         });
-        // array_sort($messages, function () {
-            
-        // });
 
         return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'messages'));
     }
 
     public function send_message(Request $request, $id) 
     {
-
         Message::create([
             'sender_id' => $request->user()->id,
             'receiver_id' => $id,
             'content' => $request->input('message'),
         ]);
-
         return redirect()->route('contacts_show', $id);
     }
 
-    public function addFriend(Request $request, $id) {
-        
+    public function remove_message(Request $request, $id, $message_id)
+    {
+        Message::findOrfail($message_id)->delete();
+        return redirect()->route('contacts_show', $id);
+    }
+
+    public function addFriend(Request $request, $id)
+    {
         $contact = User::findOrfail($id);
         $request->user()->relate()->attach($contact);
-        return redirect()->route('users_show', $id);
+        return redirect()->back();
     }
 
     public function removeFriend(Request $request, $id) {
         
         $contact = User::findOrfail($id);
         $request->user()->relate()->detach($contact);
-        return redirect()->route('users_show', $id);
+        return redirect()->back();
     }
 }
