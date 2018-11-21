@@ -47,6 +47,7 @@ class JobsController extends Controller
         }
 
         $sizeof = sizeof($suggestions);
+        if($sizeof > 5) {$sizeof = 5;}
         $suggestions_ids = array_rand($suggestions, sizeof($suggestions));
 
         $suggestions_bis = [];
