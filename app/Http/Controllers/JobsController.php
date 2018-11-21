@@ -34,8 +34,8 @@ class JobsController extends Controller
     public function show($id)
     {
         $annonce = Job::findOrFail($id);
-
-        return view('jobs.show', compact('annonce'));
+        $jobtag = $annonce->tags->all();
+        return view('jobs.show', compact('annonce','jobtag'));
     }
 
     public function create(Request $request)
@@ -78,8 +78,11 @@ class JobsController extends Controller
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
         $regions = Region::all();
-        return view('jobs.update', compact('regions','annonce','today','nextYear'));
-
+        // $jobtagsuser = $annonce->tags->all();
+        $jobtags = Tag::all();
+        // dd($annonce->region());
+        return view('jobs.update', compact('regions','annonce','today','nextYear','jobtags','jobtagsuser'));
+        
     }
 
     public function storeUpdate(Request $request, $id)

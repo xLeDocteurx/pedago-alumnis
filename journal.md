@@ -33,6 +33,9 @@ Journal de bord :
     Probleme :	RAS
 
 20/11/2018:
+    produit : fins des fonctionalitées des évenements, début des jobs.
+    Prévu : fin des jobs et debut du calendrier/chatbot.
+    Probleme :	RAS
 
 21/11/2018:
 

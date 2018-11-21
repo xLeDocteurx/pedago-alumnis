@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="container">
-
+        
         <div class="row justify-content-center">
-            
+           
             <div class="col-10">
                 <div class="card my-4">
                     <div class="card-header">
@@ -20,15 +20,15 @@
                             <span class="badge p-2 badge-primary"> {{$annonce->region->name}}</span> A {{$annonce->location}} le {{$annonce->date}}</p>
                     </div>
                     <div class="card-body">
-                        <p class="my-4">
-                            {!! nl2br(e($annonce->content)) !!}
-                        </p> 
-                        <p class="text-right">
-                            Créé par 
-                            <a href="{{ route('users_show', $annonce->author->id) }}" title="{{$annonce->author->name}} profile">
-                                {{$annonce->author->name}}
-                            </a>
-                        </p>
+                        <p class="my-4">{!! nl2br(e($annonce->content)) !!}</p> 
+                        @foreach($annonce->tags as $tag)
+                        <span class="badge p-2 badge-primary"> {{$tag->name}}</span>
+                        @endforeach
+                        
+                        <span>
+                        <p class="text-right">Créé par <a href="{{ route('users_show', $annonce->author->id) }}" title="{$annonce->author->name}} profile">{{$annonce->author->name}}</a></p>
+                        </span>                
+        
                     </div>
                 </div>
             </div>
