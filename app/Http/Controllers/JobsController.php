@@ -20,6 +20,9 @@ class JobsController extends Controller
         if (isset($_GET['region_id'])) {
             $annoncesList = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->get();
             $annonces = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
+        } elseif(isset($_GET['tag_id'])) {
+            $annoncesList = Job::where('tag_id', $_GET['tag_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+            $annonces = Job::where('tag_id', $_GET['tag_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         } else {
             $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
             $annonces = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
@@ -44,8 +47,9 @@ class JobsController extends Controller
         $regions = Region::all();
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
+        $alltags = Tag::all();
 
-        return view('jobs.create', compact('jobs','regions','today','nextYear'));
+        return view('jobs.create', compact('jobs','regions','today','nextYear','alltags'));
     }
 
     public function storejob(Request $request)
@@ -60,8 +64,8 @@ class JobsController extends Controller
             'outdated_at' => $request->input('outdated_at'),
             'refreshed_at' => $request->input('outdated_at'),
             'author_id' => $request->user()->id,
+        ])->tags()->attach($request->input('tags'));
 
-        ]);
         return redirect()->route('annonces');
     }
 
@@ -78,10 +82,11 @@ class JobsController extends Controller
         $today = date('Y-m-d');
         $nextYear = date('Y-m-d',strtotime('+1 year'));
         $regions = Region::all();
-        // $jobtagsuser = $annonce->tags->all();
-        $jobtags = Tag::all();
+        // $alltagsuser = $annonce->tags->all();
+        $alltags = Tag::all();
+        $alltagsid = $annonce->tags->pluck('id')->all();
         // dd($annonce->region());
-        return view('jobs.update', compact('regions','annonce','today','nextYear','jobtags','jobtagsuser'));
+        return view('jobs.update', compact('regions','annonce','today','nextYear','alltags','jobtagsuser','alltagsid'));
         
     }
 
@@ -89,6 +94,7 @@ class JobsController extends Controller
     {
         // dd($request->input('outdated_at'));
         $annonce = Job::findOrfail($id);
+        
         $annonce->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
@@ -99,6 +105,7 @@ class JobsController extends Controller
             'refreshed_at' => $request->input('outdated_at'),
             'author_id' => $request->user()->id,
         ]);
+        $annonce->tags()->sync($request->input('tags'));
         return redirect()->route('annonces');
     }
 }
