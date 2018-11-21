@@ -69,7 +69,7 @@
 
                             <div class="col-md-6">
                                 <select id="region_id" name="region_id" class="form-control{{ $errors->has('region_id') ? ' is-invalid' : '' }}" required autofocus>
-                                    <option selected>Sélectionnez une région</option>
+                                    <option selected disabled hidden>Sélectionnez une région</option>
                                     @foreach ($regions as $region)
                                         <option value="{{ $region->id }}">{{ $region->name }}</option>
                                     @endforeach
@@ -109,7 +109,20 @@
                                 @endif
                             </div>
                         </div>
+                        
 
+                        <div class="form-group row px-4">
+                            <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags')}}</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group">
+                                    <div class="input-group my-4">
+                                    
+                                    @foreach($alltags as $tag)
+                                    
+                                    <input type="checkbox" name="tags[]" value="{{$tag->id}}"> {{$tag->name}}<br>
+                                        @endforeach    
+                                </div>
+                                </div>
                         
 
                         <!-- <div class="form-group row  px-4">

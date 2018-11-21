@@ -54,7 +54,7 @@
 
                             <div class="col-md-6">
                                 <select id="region_id" name="region_id" class="form-control{{ $errors->has('region_id') ? ' is-invalid' : '' }}" required autofocus>
-                                    <option selected>Sélectionnez une région</option>
+                                    <option selected disabled hidden>Sélectionnez une région</option>
                                     @foreach ($regions as $region)
                                         <option value="{{ $region->id }}">{{ $region->name }}</option>
                                     @endforeach

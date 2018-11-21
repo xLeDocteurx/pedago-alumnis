@@ -15,7 +15,7 @@
                     <option value="{{$region->id}}">{{$region->name}}</option>
                 @endforeach
             </select>
-
+            
             <label for="tag-filter">Tag</label>
             <select onchange="this.form.submit()" name="tag_id" id="tag-select" name="tag-filter">
                 <option >Selectionnez un tag</option>
