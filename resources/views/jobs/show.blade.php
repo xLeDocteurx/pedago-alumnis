@@ -22,14 +22,12 @@
                     <div class="card-body">
                         <p class="my-4">{!! nl2br(e($annonce->content)) !!}</p> 
                         @foreach($annonce->tags as $tag)
-                        <span class="badge p-2 badge-primary"> {{$tag->name}}</span>
+                            <span class="badge p-2 badge-primary"> {{$tag->name}}</span>
                         @endforeach
                         
-                        <span>
                         <p class="text-right">Créé par 
                             <a href="{{ route('users_show', $annonce->author->id) }}" title="{$annonce->author->name}} profile">{{$annonce->author->name}}</a>
                         </p>
-                        </span>                
         
                     </div>
                 </div>

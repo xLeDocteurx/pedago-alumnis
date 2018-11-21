@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row  px-4">
+                        <!-- <div class="form-group row  px-4">
                             <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle(s)') }}</label>
                             <select class="col-md-6 form-control{{ $errors->has('roles') ? ' is-invalid' : '' }}" id="roles" name="roles">
                                 <option value="3">Formateur</option>
@@ -47,7 +47,7 @@
                                 <option value="5" selected>Alumni</option>
                                 <option value="6">Apprenant</option>
                             </select>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>

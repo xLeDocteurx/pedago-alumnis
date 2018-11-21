@@ -10,6 +10,10 @@
                 <div class="card my-4">
                     <div class="card-header">
                             <h3 class="d-inline mt-2"> {{$user->name}}</h3>
+                            <span class="text-left badge p-2 badge-primary">{{$user->region->name}}</span>
+                            @foreach($user->roles as $role)
+                                <span class="text-left badge p-2 badge-primary">{{$role->name}}</span>
+                            @endforeach
                             @if ($user->id === Auth::user()->id)
                                 <a class="btn btn-warning" href="{{ route('users_update', Auth::user()->id) }}" title="Editer le profil">Editer le profil</a>
                             @endif
@@ -17,9 +21,8 @@
                     </div>
                     <div class="card-body">
 
-                        @foreach($user->roles as $role)
-                            <p class="my-4">{{$role->name}}</p> 
-                        @endforeach
+                        <h4>Ma bio :</h4>
+                        <p class="my-4">{!! nl2br(e($user->bio)) !!}</p>
 
                         <p class="my-4">
                             <h4>Mes évènements :</h4>

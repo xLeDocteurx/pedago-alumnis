@@ -15,8 +15,12 @@
             <a class="nounderline" href="{{ route('users_show', $user->name) }}" title="{{$user->nom}} {{$user->prenom}}">
                 <div class="card my-3">
                     <div class="card-header">
-                                <h4 class="mt-4 d-inline">{{$user->nom}} {{$user->prenom}}</h4>
-                            <!-- <p class="text-right my-auto"> A {{$user->location}} le {{$user->date}}</p> -->
+                        <h4 class="mt-4 d-inline">{{$user->nom}} {{$user->prenom}}</h4>
+
+                        @foreach($user->roles as $role)
+                            <span class="text-left badge p-2 badge-primary">{{$role->name}}</span>
+                        @endforeach
+                        <!-- <p class="text-right my-auto"> A {{$user->location}} le {{$user->date}}</p> -->
                     </div>
                 </div>
             </a>

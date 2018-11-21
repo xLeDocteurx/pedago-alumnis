@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    
+
     <div class="row">
         <form action="{{ route('events') }}" method="get" class="mb-4">
         @csrf
