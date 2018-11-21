@@ -25,7 +25,7 @@
                         </p> 
                         <p class="text-right">
                             Créé par 
-                            <a href="{{ route('users_show', $annonce->author->id) }}" title="{{$annonce->author->name}} profile">
+                            <a href="{{ route('users_show', $annonce->author->name) }}" title="{{$annonce->author->name}} profile">
                                 {{$annonce->author->name}}
                             </a>
                         </p>

@@ -27,7 +27,7 @@
                         </p> 
                         <p class="text-right">
                             Créé par 
-                            <a href="{{ route('users_show', $event->author->id) }}" title="{{$event->author->name}} profile">
+                            <a href="{{ route('users_show', $event->author->name) }}" title="{{$event->author->name}} profile">
                                 {{$event->author->name}}
                             </a>
                         </p>
@@ -35,7 +35,7 @@
                             <h4>Personnes intéressées :</h4>
 
                             @foreach($event->subscribers as $subscriber)
-                                <a class="nounderline" href="{{ route('users_show', $subscriber->id) }}" title="{{$subscriber->name}}">
+                                <a class="nounderline" href="{{ route('users_show', $subscriber->name) }}" title="{{$subscriber->name}}">
                                     <div class="card mt-3">
                                         <div class="card-header">
                                                     <h4 class="mt-4 d-inline">{{$subscriber->name}}</h4>

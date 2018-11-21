@@ -71,13 +71,13 @@ class ContactsController extends Controller
     {
         $contact = User::findOrfail($id);
         $request->user()->relate()->attach($contact);
-        return redirect()->route('users_show', $id);
+        return redirect()->back();
     }
 
     public function removeFriend(Request $request, $id) {
         
         $contact = User::findOrfail($id);
         $request->user()->relate()->detach($contact);
-        return redirect()->route('users_show', $id);
+        return redirect()->back();
     }
 }
