@@ -34,11 +34,14 @@ class JobsController extends Controller
         return view('jobs.index', compact('annonces','annoncesList','regions', 'tags'));
     }
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $annonce = Job::findOrFail($id);
         $jobtag = $annonce->tags->all();
-        return view('jobs.show', compact('annonce','jobtag'));
+        if($request->user()->id == $annonce->author_id) {
+            $suggestions = ['1','2'];
+        }
+        return view('jobs.show', compact('annonce','jobtag', 'suggestions'));
     }
 
     public function create(Request $request)

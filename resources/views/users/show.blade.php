@@ -27,6 +27,20 @@
                         <p class="my-4">{!! nl2br(e($user->bio)) !!}</p>
 
                         <p class="my-4">
+                            <h4>Mes Annonces :</h4>
+                            @foreach($myJobs as $job)
+                                <a class="nounderline" href="{{ route('annonces_show', $job->id) }}" title="{{$job->name}}">
+                                    <div class="card mt-3">
+                                        <div class="card-header">
+                                                    <h4 class="mt-4 d-inline">{{$job->title}}</h4>
+                                                <!-- <p class="text-right my-auto"> A {{$job->location}} le {{$job->date}}</p> -->
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </p> 
+
+                        <p class="my-4">
                             <h4>Mes évènements :</h4>
                             @foreach($myEvents as $event)
                                 <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->name}}">
@@ -67,8 +81,8 @@
                 </div>
             </div>
             
-        </div>    
-    
+        </div>
+
     </div>
 
 @endsection

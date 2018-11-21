@@ -5,7 +5,7 @@
     <div class="container">
         
         <div class="row justify-content-center">
-           
+
             <div class="col-10">
                 <div class="card my-4">
                     <div class="card-header">
@@ -35,6 +35,24 @@
             
         </div>    
     
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="card my-4">
+                    <div class="card-header">
+                        <h4>Ces profils pourraient vous interesser</h4>
+                    </div>
+                    <div class="card-body">
+                        @foreach($suggestions as suggestion)
+                            {{ $suggestion }}
+                        @endforeach
+                    </div>
+                    <div class="card-action">
+                        action
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 @endsection

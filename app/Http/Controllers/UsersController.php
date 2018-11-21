@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\User;
 use App\Event;
+use App\Job;
 use App\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,7 @@ class UsersController extends Controller
         if($user == null){return redirect()->route('badboy');}
         $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
         $myEvents = Event::where('author_id', $user->id)->get();
+        $myJobs = Job::where('author_id', $user->id)->get();
 
         $friends_ids = $request->user()->relate->pluck('id')->all();
 
@@ -35,12 +37,11 @@ class UsersController extends Controller
             $user->isFriend = false;
         }
 
-        return view('users.show', compact('user', 'events', 'myEvents'));
+        return view('users.show', compact('user', 'events', 'myEvents', 'myJobs'));
     }
 
     public function update(Request $request)
     {
-
         $user = Auth::user();
         $regions = Region::all();
         $roles = Role::all();
@@ -50,22 +51,21 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-
         $user = Auth::user();
         $user->update([
             'name' => $request->input('nom').'_'.$request->input('prenom'),
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
+            'bio' => $request->input('bio'),
+            // 'bio' => 'qsmldkdqmlkdmlqsksd',
             'email' => $request->input('email'),
             'region_id' => $request->input('region_id'),
-            'bio' => $request->input('bio'),
+
         ]);
 
-        // dd($user);
         $user->roles()->sync($request->input('roles'));
-
-        $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
-        $myEvents = Event::where('author_id', $user->id)->get();
+        // $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
+        // $myEvents = Event::where('author_id', $user->id)->get();
         return redirect()->route('users_show', $user->name);
     }
 }
