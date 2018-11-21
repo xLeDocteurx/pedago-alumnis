@@ -8,7 +8,7 @@
                 <div class="card-header">Edition du profil de {{ $user->name }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('users_store') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -88,7 +88,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Modifier') }}
                                 </button>
                             </div>
                         </div>

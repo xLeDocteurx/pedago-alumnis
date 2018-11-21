@@ -16,7 +16,7 @@
                             @endif
                             <h3 class="mt-3"> {{$annonce->title}}</h3>
                         
-                            <p class="text-right my-auto"> 
+                            <p class="text-right my-auto">
                             <span class="badge p-2 badge-primary"> {{$annonce->region->name}}</span> A {{$annonce->location}} le {{$annonce->date}}</p>
                     </div>
                     <div class="card-body">

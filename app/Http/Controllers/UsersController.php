@@ -45,6 +45,22 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+        $user->update([
+            'name' => $request->input('nom').'_'.$request->input('prenom'),
+            'nom' => $request->input('nom'),
+            'prenom' => $request->input('prenom'),
+            'email' => $request->input('email'),
+            'password' => 
+                // Hash::make($request->input('password'))
+                $request->input('password')
+            ,
+        ]);
 
+        $user->roles()->sync([$request->input('roles')]);
+
+        $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
+        $myEvents = Event::where('author_id', $user->id)->get();
+        return redirect()->route('users_show', $user->name);
     }
 }

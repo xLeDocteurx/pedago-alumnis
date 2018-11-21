@@ -52,7 +52,6 @@
                                 @endif
                             </li>
                         @else
-
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                             </li>
@@ -71,7 +70,7 @@
                                             
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->nom }} {{ Auth::user()->prenom }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -81,7 +80,7 @@
                                     <a class="dropdown-item" href="{{ route('contacts') }}">{{ __('Contacts') }}</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                        onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();"
                                     >
                                         {{ __('Logout') }}
@@ -103,13 +102,11 @@
         </main>
     </div>
     
-        <div class="navbar navbar-light navbar-laravel d-flex fixed-bottom justify-content-end">
-            
-            <a href="" class=""><i class="fab fa-facebook fa-3x mx-2"></i></a> 
+    <div class="navbar navbar-light navbar-laravel d-flex fixed-bottom justify-content-end">
+        <a href="" class=""><i class="fab fa-facebook fa-3x mx-2"></i></a> 
         <a href=""><i class="fab fa-github fa-3x mx-2"></i></a>
         <a href=""><i class="fab fa-reddit fa-3x mx-2"></i></a>
-            
-        </div>
+    </div>
     
 </body>
 </html>
