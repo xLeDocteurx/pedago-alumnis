@@ -43,7 +43,7 @@
                     <div class="card-header">
                             <h3 class="mt-4 d-inline">{{$annonce->title}}</h3>
                         <p class="text-right my-auto">
-                            <span class="badge p-2 badge-primary"> {{ $annonce->region->name }}</span> A {{$annonce->location}} le {{$annonce->outdated_at}}
+                            <span class="badge p-2 badge-secondary"> {{ $annonce->region->name }}</span> A {{$annonce->location}} le {{$annonce->outdated_at}}
                         </p>
                     </div>
                         </a>

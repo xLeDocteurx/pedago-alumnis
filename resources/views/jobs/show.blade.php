@@ -17,7 +17,7 @@
                             <h3 class="mt-3"> {{$annonce->title}}</h3>
                         
                             <p class="text-right my-auto">
-                            <span class="badge p-2 badge-primary"> {{$annonce->region->name}}</span> A {{$annonce->location}} le {{$annonce->date}}</p>
+                            <span class="badge p-2 badge-secondary"> {{$annonce->region->name}}</span> A {{$annonce->location}} le {{$annonce->date}}</p>
                     </div>
                     <div class="card-body">
                         <p class="my-4">{!! nl2br(e($annonce->content)) !!}</p> 

@@ -18,7 +18,7 @@
                             <h3 class="mt-3"> {{$event->title}}</h3>
                         
                             <p class="text-right my-auto"> 
-                            <span class="badge p-2 badge-primary"> {{$event->region->name}}</span> A {{$event->location}} le {{$event->date}}</p>
+                            <span class="badge p-2 badge-secondary"> {{$event->region->name}}</span> A {{$event->location}} le {{$event->date}}</p>
 
                     </div>
                     <div class="card-body">

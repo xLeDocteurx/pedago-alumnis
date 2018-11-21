@@ -10,7 +10,9 @@
                 <div class="card my-4">
                     <div class="card-header">
                             <h3 class="d-inline mt-2"> {{$user->name}}</h3>
-                            <span class="text-left badge p-2 badge-primary">{{$user->region->name}}</span>
+                            @if($user->region)
+                                <span class="text-left badge p-2 badge-secondary">{{$user->region->name}}</span>
+                            @endif
                             @foreach($user->roles as $role)
                                 <span class="text-left badge p-2 badge-primary">{{$role->name}}</span>
                             @endforeach

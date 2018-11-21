@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function region()
     {
-        return $this->belongsTo('App\Regions');
+        return $this->belongsTo('App\Region');
     }
 
     public function tags()
