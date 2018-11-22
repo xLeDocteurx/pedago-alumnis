@@ -26,9 +26,12 @@ class ContactsController extends Controller
     }
 
     public function show (Request $request, $id) {
-        
+        $bot = null;
+        if ($id == 0) {
+            $bot = 'bot';
+        }
         $current_user = $request->user();
-        
+    
         $contacts = $current_user->relate()->get();
         $in_contacts = $current_user->isRelated()->get();
 
@@ -48,7 +51,7 @@ class ContactsController extends Controller
             return $e1->id - $e2->id;
         });
 
-        return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'messages'));
+        return view('contacts.index', compact('contacts', 'in_contacts', 'conversation', 'messages', 'bot'));
     }
 
     public function send_message(Request $request, $id) 
