@@ -4,14 +4,14 @@
 
 
 <div class="container">
-    @foreach($tagfilter as $tag)    
-{{$tag->tags}}
+@foreach($annonces as $annonce)
+{{$annonce->region->name}} <br>
 @endforeach
     <div class="row">
-        <form action="{{ route('annonces') }}" method="get" class="mb-4">
+        <form action="{{ route('annonces_filter') }}" method="post" class="mb-4">
         @csrf
             <label for="region-filter">Région</label>
-            <select onchange="this.form.submit()" name="region_id" id="region-select" name="region-filter">
+            <select  name="region_id" id="region-select" name="region-filter">
                 <option >Selectionnez une région</option>
                 @foreach($regions as $region)
                     <option value="{{$region->id}}">{{$region->name}}</option>
@@ -19,12 +19,13 @@
             </select>
             
             <label for="tag-filter">Tag</label>
-            <select onchange="this.form.submit()" name="tag_id" id="tag-select" name="tag-filter">
+            <select name="tag_id" id="tag-select" name="tag-filter">
                 <option >Selectionnez un tag</option>
                 @foreach($tags as $tag)
                     <option value="{{$tag->id}}">{{$tag->tagFamily->id}} / {{$tag->name}}</option>
                 @endforeach
             </select>
+            <button type="submit" class="btn btn-success">Ok</button>
         </form>
 
     </div>
