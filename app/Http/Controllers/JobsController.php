@@ -147,14 +147,31 @@ class JobsController extends Controller
         $job = Job::all();
         // dd($id_tag);
 
+        
         $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+        
+        
+        if($id_region !== "Selectionnez une région" && $id_region !==null){
+            if($id_tag == "Selectionnez un tag"){
+                $annonces = Job::find($id_region)->where('region_id',$id_region)->paginate(5);        
+            }else{
+            
+                $annonces = Job::all();
+                dd($annonces);
+                    }
+            
+        } elseif ($id_tag !== "Selectionnez un tag" ) {
+            $annonces = Job::find($id_tag)->where('tag_id',$id_tag)->paginate(5);
+        } else {
+            dd('3');
+        }
         $annonces = Job::find($id_region)->where('region_id',$id_region)->paginate(5);
         $alljobs = Job::all();
         $tagfilter = $alljobs->load('tags');
         
         $randomTag = Tag::findOrfail($id_region);
-    
-        $regions = Region::all();
+            // dd($randomTag);
+            $regions = Region::all();
         $tags = Tag::all();
 
         return view('jobs.index', compact('job','id_tag','id_region','annoncesList','annonces','alljobs','tagfilter','randomTag','regions','tags'));
