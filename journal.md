@@ -38,6 +38,9 @@ Journal de bord :
     Probleme :	RAS
 
 21/11/2018:
+    produit : DEBUGAGE !, beaucoup de petites features.
+    Prévu : fin des filtres, fin des suggestions liées au annonces et calendrier/chatbot
+    Probleme :	filtre sur les annonces emploi
 
 22/11/2018:
 
