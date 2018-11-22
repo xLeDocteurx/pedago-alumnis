@@ -1,21 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container">
 
         <div class="row justify-content-center">
-            
             <div class="col-10">
                 <div class="card my-4">
+                            <img class="card-img-top" src="{{ asset($event->image_url) }}" alt="Logo de l'évènement">
                     <div class="card-header">
-                    
                             @if ($event->author->id === Auth::user()->id)
                                 <a class="btn btn-danger" href="{{ route('events_delete', $event->id) }}" title="{{ __('Supprimer l\'évènement') }}">Supprimer l'évènement <i class="fas fa-trash"></i></a>
                                 <a class="btn btn-warning" href="{{ route('events_update', $event->id) }}" title="{{ __('Modifier')}}">Modifier<i class="fas fa-edit"></i></a>
-                                
                             @endif
-                            <h3 class="mt-3"> {{$event->title}}</h3>
+                            <h3 class="mt-3">{{$event->title}}</h3>
                         
                             <p class="text-right my-auto"> 
                             <span class="badge p-2 badge-secondary"> {{$event->region->name}}</span> A {{$event->location}} le {{$event->date}}</p>

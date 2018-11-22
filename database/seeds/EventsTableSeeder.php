@@ -17,7 +17,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor it amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 1,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 1,
         ]);
         DB::table('events')->insert([
@@ -26,7 +26,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 2,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 4,
         ]);
         DB::table('events')->insert([
@@ -35,7 +35,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 3,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 3,
         ]);
         DB::table('events')->insert([
@@ -44,7 +44,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 1,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 2,
         ]);
         DB::table('events')->insert([
@@ -53,7 +53,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 2,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 2,
         ]);
         DB::table('events')->insert([
@@ -62,7 +62,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 1,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 1,
         ]);
         DB::table('events')->insert([
@@ -71,7 +71,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 3,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 2,
         ]);
         DB::table('events')->insert([
@@ -80,7 +80,7 @@ class EventsTableSeeder extends Seeder
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 1,
-            'date' => "2018-11-16",
+            'date' => "2019-11-16",
             'author_id' => 2,
         ]);
     }
