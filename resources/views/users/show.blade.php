@@ -8,8 +8,9 @@
             
             <div class="col-10">
                 <div class="card my-4">
-                    <div class="card-header">
-                            <h3 class="d-inline mt-2"> {{$user->name}}</h3>
+                    <div class="card-header text-center">
+                            <img class="mx-auto rounded-circle" src="{{ asset($user->image_url) }}" alt="User avatar" style="max-width: 150px;">
+                            <h3 class="mt-2"> {{$user->name}}</h3>
                             @if ($user->id === Auth::user()->id)
                                 <a class="btn btn-warning" href="{{ route('users_update', Auth::user()->id) }}" title="Editer le profil">Editer le profil</a>
                             @endif

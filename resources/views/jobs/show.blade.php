@@ -8,6 +8,7 @@
 
             <div class="col-10">
                 <div class="card my-4">
+                    <img class="card-img-top" src="{{ asset($annonce->image_url) }}" alt="User avatar" style="max-width: 150px;">
                     <div class="card-header">
                             @if ($annonce->author->id === Auth::user()->id)
                                 <a class="btn btn-danger" href="{{ route('annonces_delete', $annonce->id) }}" title="{{ __('Supprimer l\'évènement') }}">Supprimer l'évènement <i class="fas fa-trash"></i></a>

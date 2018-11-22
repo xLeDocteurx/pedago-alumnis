@@ -15,6 +15,7 @@
             <a class="nounderline" href="{{ route('users_show', $user->name) }}" title="{{$user->nom}} {{$user->prenom}}">
                 <div class="card my-3">
                     <div class="card-header">
+                        <img class="mx-auto rounded-circle" src="{{ asset($user->image_url) }}" alt="User avatar" style="max-width: 50px;">
                         <h4 class="mt-4 d-inline">{{$user->nom}} {{$user->prenom}}</h4>
                         @if($user->region)
                             <span class="text-left badge p-2 badge-secondary">{{$user->region->name}}</span>

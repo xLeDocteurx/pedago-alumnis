@@ -12,14 +12,16 @@ class EventsTableSeeder extends Seeder
     public function run()
     {
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°88",
-            'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
+            'content' => "Lorem ipsum dolor it amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
             'region_id' => 1,
             'date' => "2018-11-16",
             'author_id' => 1,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°67",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
@@ -28,6 +30,7 @@ class EventsTableSeeder extends Seeder
             'author_id' => 4,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°21",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
@@ -36,6 +39,7 @@ class EventsTableSeeder extends Seeder
             'author_id' => 3,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°45",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
@@ -44,6 +48,7 @@ class EventsTableSeeder extends Seeder
             'author_id' => 2,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°33",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
@@ -52,6 +57,7 @@ class EventsTableSeeder extends Seeder
             'author_id' => 2,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°41",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
@@ -60,6 +66,7 @@ class EventsTableSeeder extends Seeder
             'author_id' => 1,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°32",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
@@ -68,6 +75,7 @@ class EventsTableSeeder extends Seeder
             'author_id' => 2,
         ]);
         DB::table('events')->insert([
+            'image_url' => "./img/event.jpg",
             'title' => "lorem n°99",
             'content' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam error aspernatur inventore placeat earum iste! Veritatis voluptatum accusantium amet. Corrupti voluptas debitis numquam voluptatem velit maiores vel consectetur, dolores commodi nam maxime obcaecati perferendis enim doloribus, officiis cupiditate sint exercitationem, voluptatibus explicabo animi facilis sed? Reprehenderit incidunt facere iusto sed?",
             'location' => "Paris",
