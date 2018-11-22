@@ -90,10 +90,6 @@
                             </div>
                         </div>
 
-
-
-
-
                     </div>
                     <div class="card-action text-right">
                         @if ($user->id !== Auth::user()->id)
