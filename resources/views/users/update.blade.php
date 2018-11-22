@@ -41,12 +41,56 @@
 
                         <div class="form-group row  px-4">
                             <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle(s)') }}</label>
-                            <select class="col-md-6 form-control{{ $errors->has('roles') ? ' is-invalid' : '' }}" id="roles" name="roles">
-                                <option value="3">Formateur</option>
-                                <option value="4">Professionnel</option>
-                                <option value="5" selected>Alumni</option>
-                                <option value="6">Apprenant</option>
-                            </select>
+                            @foreach($roles as $role)
+                                    @if($role->id > 2)
+                                        <div class="checkbox">
+                                            <label><input name="roles[]" type="checkbox" value={{ $role->id }}
+                                            @if(in_array($role->id, $roles_ids))
+                                                checked
+                                            @endif
+                                            >{{ $role->name }}</label>
+                                        </div>
+                                    @endif
+                            @endforeach
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="region_id" class="col-md-4 col-form-label text-md-right">{{ __('Region') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="region_id" name="region_id" class="form-control{{ $errors->has('region_id') ? ' is-invalid' : '' }}" required autofocus>
+                                    @if($user->region_id == null)
+                                        <option selected>Sélectionnez une région</option>
+                                    @endif                                    
+                                    @foreach ($regions as $region)
+                                        <option value="{{ $region->id }}" 
+                                            @if($region->id == $user->region_id)
+                                                selected
+                                            @endif>{{ $region->name }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('region_id'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('region_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Bio') }}</label>
+
+                            <div class="col-md-6">
+                                <textarea id="bio" class="form-control{{ $errors->has('bio') ? ' is-invalid' : '' }}" name="bio">
+                                    {!! nl2br(e($user->bio)) !!}
+                                </textarea>
+
+                                @if ($errors->has('bio'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('bio') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group row">
@@ -63,35 +107,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <p class="text-center">
+                            <a class="" href="#" title="Changer de  mot de passe">Envie de changer de mot de passe ?</a>
+                        </p>
+                        <p class="text-center">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Modifier') }}
+                            </button>
+                        </p>
 
-                            <div class="col-md-6">
-                                <input id="password" type="text" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" value="{{ $user->password }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" value="{{ $user->password }}" type="text" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Modifier') }}
-                                </button>
-                            </div>
-                        </div>
                     </form>
                 </div>
             </div>

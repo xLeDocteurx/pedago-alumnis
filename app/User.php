@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'nom', 'prenom', 'region_id', 'email', 'password',
+        'name', 'nom', 'prenom', 'bio', 'region_id', 'email', 'password',
     ];
 
     /**
@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function region()
     {
-        return $this->belongsTo('App\Regions');
+        return $this->belongsTo('App\Region');
     }
 
     public function tags()

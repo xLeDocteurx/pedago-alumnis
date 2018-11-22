@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->text('bio')->nullable();
-            $table->integer('region_id');
+            $table->integer('region_id')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
