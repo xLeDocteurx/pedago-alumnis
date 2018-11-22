@@ -17,6 +17,15 @@
                 <div class="tab-pane fade show active" id="nav-mycontacts" role="tabpanel" aria-labelledby="nav-mycontacts-tab">
                     <div class="row">
                         <div class="col-md-4">
+
+                            <a class="nounderline" href="{{ route('contacts_show', 0) }}" title="Le chat boté. Pour vous servir!">
+                                <div class="card mt-3">
+                                    <div class="card-header">
+                                                <h4 class="mt-4 d-inline">Chat_Boté</h4>
+                                    </div>
+                                </div>
+                            </a>
+
                             @foreach($contacts as $contact)
                                 <a class="nounderline" href="{{ route('contacts_show', $contact->id) }}" title="{{$contact->name}}">
                                     <div class="card mt-3">
@@ -30,6 +39,14 @@
                         </div>
                         
                         <div class="col-md-8">
+                            @if (isset($bot))
+                                <iframe
+                                    allow="microphone;"
+                                    width="350"
+                                    height="430"
+                                    src="https://console.dialogflow.com/api-client/demo/embedded/07501b4c-d79e-4ce9-b50b-9addd6a1ae3c">
+                                </iframe>
+                            @endif
                             @if (isset($conversation))
                                 <div class="row">
                                     <div class="col-12 text-center">
