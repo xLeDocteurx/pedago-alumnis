@@ -56,3 +56,4 @@ Route::get('/annonces/{id}', 'JobsController@show')->name('annonces_show');
 Route::get('/annonces/{id}/update', 'JobsController@update')->name('annonces_update');
 Route::get('/annonces/{id}/delete', 'JobsController@delete')->name('annonces_delete');
 Route::post('/annonces/{id}/storeupdate', 'JobsController@storeUpdate')->name('annonces_storeupdate');
+Route::post('/annonces/filter','JobsController@filter')->name('annonces_filter');

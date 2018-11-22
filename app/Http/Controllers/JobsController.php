@@ -28,21 +28,21 @@ class JobsController extends Controller
                  
         //                 // $annonces = Job::where('tag_id', $_GET['tag_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         // } else {
-            $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
-            $annonces = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
-        // }
+            // }
+            //dd($randomTag->jobs);
+            // ->where('tag_id', $_GET['tag_id'])->get();
+            // dd($tagfilter);
+        $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+        $annonces = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
         $alljobs = Job::all();
         $tagfilter = $alljobs->load('tags');
 
         $randomTag = Tag::findOrfail(2);
-        //dd($randomTag->jobs);
-        // ->where('tag_id', $_GET['tag_id'])->get();
-        // dd($tagfilter);
-        
+    
         $regions = Region::all();
         $tags = Tag::all();
 
-        return view('jobs.index', compact('annonces','annoncesList','regions', 'tags', 'tagList','alljobs','tagfilter'));
+        return view('jobs.index', compact('annonces','annoncesList','regions', 'tags', 'tagList','alljobs','tagfilter','randomTag'));
     }
 
     public function show(Request $request, $id)
@@ -59,7 +59,9 @@ class JobsController extends Controller
 
         $sizeof = sizeof($suggestions);
         if($sizeof > 5) {$sizeof = 5;}
-        $suggestions_ids = array_rand($suggestions, sizeof($suggestions));
+        if($sizeof != 0){
+            $suggestions_ids = array_rand($suggestions, sizeof($suggestions));
+        } else {$suggestions_ids = []; }
 
         $suggestions_bis = [];
         foreach($suggestions_ids as $suggestion_id){
@@ -136,5 +138,42 @@ class JobsController extends Controller
         ]);
         $annonce->tags()->sync($request->input('tags'));
         return redirect()->route('annonces');
+    }
+
+    public function filter(Request $request)
+    {
+        $id_tag = $request->input('tag_id');
+        $id_region = $request->input('region_id');
+        $job = Job::all();
+        // dd($id_tag);
+
+        
+        $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+        
+        
+        if($id_region !== "Selectionnez une région" && $id_region !==null){
+            if($id_tag == "Selectionnez un tag"){
+                $annonces = Job::find($id_region)->where('region_id',$id_region)->paginate(5);        
+            }else{
+            
+                $annonces = Job::all();
+                dd($annonces);
+                    }
+            
+        } elseif ($id_tag !== "Selectionnez un tag" ) {
+            $annonces = Job::find($id_tag)->where('tag_id',$id_tag)->paginate(5);
+        } else {
+            dd('3');
+        }
+        $annonces = Job::find($id_region)->where('region_id',$id_region)->paginate(5);
+        $alljobs = Job::all();
+        $tagfilter = $alljobs->load('tags');
+        
+        $randomTag = Tag::findOrfail($id_region);
+            // dd($randomTag);
+            $regions = Region::all();
+        $tags = Tag::all();
+
+        return view('jobs.index', compact('job','id_tag','id_region','annoncesList','annonces','alljobs','tagfilter','randomTag','regions','tags'));
     }
 }
