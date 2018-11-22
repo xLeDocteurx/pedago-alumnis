@@ -4,7 +4,9 @@
 
 
 <div class="container">
-    
+    @foreach($tagfilter as $tag)    
+{{$tag->tags}}
+@endforeach
     <div class="row">
         <form action="{{ route('annonces') }}" method="get" class="mb-4">
         @csrf

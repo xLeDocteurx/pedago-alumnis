@@ -17,21 +17,32 @@ class JobsController extends Controller
     //s
     public function index(Request $request)
     {
-        if (isset($_GET['region_id'])) {
-            $annoncesList = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->get();
-            $annonces = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
-        } elseif(isset($_GET['tag_id'])) {
-            $annoncesList = Job::where('tag_id', $_GET['tag_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->get();
-            $annonces = Job::where('tag_id', $_GET['tag_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
-        } else {
+        // if ($_GET['region_id'] != "tata") {
+        //     $annoncesList = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->get();
+        //     $annonces = Job::where('region_id', $_GET['region_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
+        // }
+        //  if(isset($_GET['tag_id'])) {
+            
+        //     // $books = App\Book::with(['author', 'publisher'])->get();
+        //     $tagList = Job::with('tags')->where('tag_id', $_GET['tag_id'])->get();
+                 
+        //                 // $annonces = Job::where('tag_id', $_GET['tag_id'])->whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
+        // } else {
             $annoncesList = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->get();
             $annonces = Job::whereDate('outdated_at', '>=', date('Y-m-d'))->orderBy('id', 'desc')->paginate(5);
-        }
+        // }
+        $alljobs = Job::all();
+        $tagfilter = $alljobs->load('tags');
+
+        $randomTag = Tag::findOrfail(2);
+        //dd($randomTag->jobs);
+        // ->where('tag_id', $_GET['tag_id'])->get();
+        // dd($tagfilter);
         
         $regions = Region::all();
         $tags = Tag::all();
 
-        return view('jobs.index', compact('annonces','annoncesList','regions', 'tags'));
+        return view('jobs.index', compact('annonces','annoncesList','regions', 'tags', 'tagList','alljobs','tagfilter'));
     }
 
     public function show($id)
