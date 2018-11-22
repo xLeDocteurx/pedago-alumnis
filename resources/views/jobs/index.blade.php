@@ -4,9 +4,6 @@
 
 
 <div class="container">
-@foreach($annonces as $annonce)
-{{$annonce->region->name}} <br>
-@endforeach
     <div class="row">
         <form action="{{ route('annonces_filter') }}" method="post" class="mb-4">
         @csrf
