@@ -41,6 +41,7 @@
                 <div class="card my-3">
                         <a class="nounderline" href="{{ route('annonces_show', $annonce->id) }}" title="{{$annonce->title}}">
                     <div class="card-header">
+                            <img class="mx-auto rounded-circle" src="{{ asset($annonce->image_url) }}" alt="Logo de l'entreprise" style="max-width: 100px;">
                             <h3 class="mt-4 d-inline">{{$annonce->title}}</h3>
                         <p class="text-right my-auto">
                             <span class="badge p-2 badge-secondary"> {{ $annonce->region->name }}</span> A {{$annonce->location}} le {{$annonce->outdated_at}}

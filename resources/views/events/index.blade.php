@@ -32,7 +32,9 @@
             <div class="col-10">
                 <div class="card my-3">
                         <a class="nounderline" href="{{ route('events_show', $event->id) }}" title="{{$event->title}}">
+                    <img class="card-img-top" src="{{ asset($event->image_url) }}" alt="Logo de l'évènement">
                     <div class="card-header">
+                            <!-- <img class="mx-auto rounded" src="{{ asset($event->image_url) }}" alt="Image de l'évènement" style="max-width: 150px;"> -->
                             <h3 class="mt-4 d-inline">{{$event->title}}</h3>
                         <p class="text-right my-auto">
                             <span class="badge p-2 badge-secondary">{{ $event->region->name }}</span> A {{$event->location}} le {{$event->date}}

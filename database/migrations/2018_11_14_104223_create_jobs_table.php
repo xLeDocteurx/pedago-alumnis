@@ -20,6 +20,7 @@ class CreateJobsTable extends Migration
             $table->string('location');
             $table->string('title');
             $table->text('content');
+            $table->text('image_url')->nullable();
             $table->integer('author_id');
             $table->date('outdated_at');
             $table->date('refreshed_at');
