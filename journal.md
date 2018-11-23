@@ -42,6 +42,11 @@ Journal de bord :
     Prévu : fin des filtres, fin des suggestions liées au annonces et calendrier/chatbot
     Probleme :	filtre sur les annonces emploi
 
-22/11/2018:
+22/11/2018: 
+    
 
 23/11/2018:
+
+produit : fin des filtres, mise en page et debugage.
+    Prévu : 
+    Probleme :	
