@@ -9,17 +9,29 @@
         @csrf
             <label for="region-filter">Région</label>
             <select  name="region_id" id="region-select" name="region-filter">
-                <option >Selectionnez une région</option>
+                <option value="prout">Selectionnez une région</option>
                 @foreach($regions as $region)
-                    <option value="{{$region->id}}">{{$region->name}}</option>
+                    <option value="{{$region->id}}"
+                    @if(isset($id_region))
+                        @if($id_region == $region->id)
+                            selected
+                        @endif
+                    @endif
+                    >{{$region->name}}</option>
                 @endforeach
             </select>
             
             <label for="tag-filter">Tag</label>
             <select name="tag_id" id="tag-select" name="tag-filter">
-                <option >Selectionnez un tag</option>
+                <option value="prout">Selectionnez un tag</option>
                 @foreach($tags as $tag)
-                    <option value="{{$tag->id}}">{{$tag->tagFamily->id}} / {{$tag->name}}</option>
+                    <option value="{{$tag->id}}"
+                    @if(isset($id_tag))
+                        @if($id_tag == $tag->id)
+                            selected
+                        @endif
+                    @endif
+                    >{{$tag->tagFamily->id}} / {{$tag->name}}</option>
                 @endforeach
             </select>
             <button type="submit" class="btn btn-success">Ok</button>

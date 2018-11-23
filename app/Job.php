@@ -8,7 +8,7 @@ class Job extends Model
 {
     
     protected $fillable = [
-        'company','title', 'content', 'region_id', 'location', 'outdated_at', 'author_id','refreshed_at'
+        'company','title', 'content', 'image_url', 'region_id', 'location', 'outdated_at', 'author_id','refreshed_at'
     ];
 
     public function author(){

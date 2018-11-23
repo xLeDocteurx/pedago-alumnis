@@ -79,10 +79,18 @@ class EventsController extends Controller
     public function store(Request $request)
     {
 
+        if(Input::hasFile('image')){
+            $image = Input::file('image');
+            $image->move('img', $image->getClientOriginalName());
+            $image_url = './img/' . $image->getClientOriginalName();
+        } else {
+            $image_url = '';
+        }
+
         Event::create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            // 'image_url' => $image_url,
+            'image_url' => $image_url,
             'region_id' => $request->input('region_id'),
             'location' => $request->input('location'),
             'date' => $request->input('date'),
@@ -112,7 +120,17 @@ class EventsController extends Controller
     public function storeUpdate(Request $request, $id)
     {
         $event = Event::findOrfail($id);
+
+        if(Input::hasFile('image')){
+            $image = Input::file('image');
+            $image->move('img', $image->getClientOriginalName());
+            $image_url = './img/' . $image->getClientOriginalName();
+        } else {
+            $image_url = $event->image_url;
+        }
+
         $event->update([
+            'image_url' => $image_url,
             'title' => $request->input('title'),
             'content' => $request->input('content'),
             'location' => $request->input('location'),

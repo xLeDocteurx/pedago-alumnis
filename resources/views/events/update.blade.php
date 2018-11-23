@@ -10,8 +10,16 @@
                 <div class="card-header"><h3 class="my-auto text-center">{{ __('Modifier votre annonce') }}</h3> </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events_storeupdate',$event->id) }}">
+                    <form method="POST" action="{{ route('events_storeupdate',$event->id) }}" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="form-group row">
+                            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="image" name="image" type="file" class="form-control" value="{{ old('image') }}">
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Titre') }}</label>
@@ -90,20 +98,7 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row  px-4">
-                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle(s)') }}</label>
-                            <select class="col-md-6 form-control{{ $errors->has('roles') ? ' is-invalid' : '' }}" id="roles" name="roles">
-                                <option value="3">Formateur</option>
-                                <option value="4">Professionnel</option>
-                                <option value="5" selected>Alumni</option>
-                                <option value="6">Apprenant</option>
-                            </select>
-                        </div> -->
-
-                        
-                                
-
-                        </div>
+                        <!-- </div> -->
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

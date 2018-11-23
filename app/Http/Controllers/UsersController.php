@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Input;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 use App\Role;
 use App\User;
 use App\Event;
@@ -52,17 +55,26 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
+
+        if(Input::hasFile('image')){
+            $image = Input::file('image');
+            $image->move('img', $image->getClientOriginalName());
+            $image_url = './img/' . $image->getClientOriginalName();
+        } else {
+            $image_url = $user->image_url;
+        }
+
         $user->update([
             'name' => $request->input('nom').'_'.$request->input('prenom'),
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
             'bio' => $request->input('bio'),
-            // 'bio' => 'qsmldkdqmlkdmlqsksd',
+            'image_url' => $image_url,
             'email' => $request->input('email'),
             'region_id' => $request->input('region_id'),
-
         ]);
 
+        
         $user->roles()->sync($request->input('roles'));
         // $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
         // $myEvents = Event::where('author_id', $user->id)->get();
