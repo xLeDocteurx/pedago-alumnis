@@ -43,10 +43,12 @@ Journal de bord :
     Probleme :	filtre sur les annonces emploi
 
 22/11/2018: 
-    
+    produit : filtre coté jobs, debut du chatbot, et possibilitée de choisir une image pour les postes
+    Prévu : calendrier + chatbot.
+    Probleme : RAS
 
 23/11/2018:
 
-produit : fin des filtres, mise en page et debugage.
+    produit : fin des filtres, mise en page et debugage, mise en place des images
     Prévu : 
     Probleme :	
