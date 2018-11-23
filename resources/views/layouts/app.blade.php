@@ -52,9 +52,9 @@
                                 @endif
                             </li>
                         @else
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
-                            </li>
+                            </li> -->
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('events') }}">{{ __('Evenements') }}</a>
@@ -96,8 +96,11 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4 my-4">
+        @if(Route::currentRouteName() == 'welcome')
+        <main class="py-0 my-0">
+            @else
+            <main class="py-4 my-4">
+            @endif
             @yield('content')
         </main>
     </div>

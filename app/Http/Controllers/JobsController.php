@@ -153,7 +153,7 @@ class JobsController extends Controller
         
         if($id_region !== "Selectionnez une région" && $id_region !==null){
             if($id_tag == "Selectionnez un tag"){
-                $annonces = Job::find($id_region)->where('region_id',$id_region)->paginate(5);        
+                $annonces = Job::where('region_id',$id_region)->paginate(5);        
             }else{
             
                 $annonces = Job::all();

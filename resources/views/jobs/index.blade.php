@@ -7,22 +7,22 @@
     <div class="row">
         <form action="{{ route('annonces_filter') }}" method="post" class="mb-4">
         @csrf
-            <label for="region-filter">Région</label>
-            <select  name="region_id" id="region-select" name="region-filter">
+            
+            <select class="custom-select m-3" name="region_id" id="region-select" name="region-filter">
                 <option >Selectionnez une région</option>
                 @foreach($regions as $region)
                     <option value="{{$region->id}}">{{$region->name}}</option>
                 @endforeach
             </select>
             
-            <label for="tag-filter">Tag</label>
-            <select name="tag_id" id="tag-select" name="tag-filter">
+            
+            <select class="custom-select m-3" name="tag_id" id="tag-select" name="tag-filter">
                 <option >Selectionnez un tag</option>
                 @foreach($tags as $tag)
                     <option value="{{$tag->id}}">{{$tag->tagFamily->id}} / {{$tag->name}}</option>
                 @endforeach
             </select>
-            <button type="submit" class="btn btn-success">Ok</button>
+            <button type="submit" class="btn btn-success m-3">Ok</button>
         </form>
 
     </div>
@@ -41,7 +41,7 @@
                 <div class="card my-3">
                         <a class="nounderline" href="{{ route('annonces_show', $annonce->id) }}" title="{{$annonce->title}}">
                     <div class="card-header">
-                            <img class="mx-auto rounded-circle" src="{{ asset($annonce->image_url) }}" alt="Logo de l'entreprise" style="max-width: 100px;">
+                            <img class="mx-auto rounded-circle" src="{{ ($annonce->image_url) }}" alt="Logo de l'entreprise" style="max-width: 100px;">
                             <h3 class="mt-4 d-inline">{{$annonce->title}}</h3>
                         <p class="text-right my-auto">
                             <span class="badge p-2 badge-secondary"> {{ $annonce->region->name }}</span> A {{$annonce->location}} le {{$annonce->outdated_at}}

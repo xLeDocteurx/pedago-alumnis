@@ -1,24 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div class="card">
-                <div class="card-header">This is the home page</div>
-
-                <div class="card-body">
-
-                    <!-- @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in! -->
-                </div>
-            </div>
-        </div>
+    @section('content')
+    <div class="container-fluid p-0">
+        <img id="cover" class="img-fluid" src="img/simploncover.jpg" class="" alt="">
+    
+        <!-- <div class="row justify-content-center"> -->
+            
+        <!-- </div> -->
     </div>
-</div>
-@endsection
+    @endsection
