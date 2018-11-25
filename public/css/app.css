@@ -17,6 +17,11 @@ img {
     max-width: 100%;
 }
 
+.stickyFooter {
+    position: fixed;
+    bottom: 0px;
+}
+
 .inbox_people {
     background: #f8f8f8 none repeat scroll 0 0;
     float: left;
