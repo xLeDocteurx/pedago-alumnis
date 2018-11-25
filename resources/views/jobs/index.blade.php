@@ -8,10 +8,10 @@
         <form action="{{ route('annonces_filter') }}" method="post" class="mb-4">
         @csrf
             <label for="region_id">Région</label>
-            <select class="custom-select" name="region_id" id="region_id">
-                <option class="dropdown-item" value="prout">Selectionnez une région</option>
+            <select name="region_id" id="region_id">
+                <option value="prout">Selectionnez une région</option>
                 @foreach($regions as $region)
-                    <option class="dropdown-item" value="{{$region->id}}"
+                    <option value="{{$region->id}}"
                     @if(isset($id_region))
                         @if($id_region == $region->id)
                             selected
@@ -22,10 +22,10 @@
             </select>
             
             <label for="tag_id">Tag</label>
-            <select class="custom-select" name="tag_id" id="tag_id">
-                <option class="dropdown-item" value="prout">Selectionnez un tag</option>
+            <select name="tag_id" id="tag_id">
+                <option value="prout">Selectionnez un tag</option>
                 @foreach($tags as $tag)
-                    <option class="dropdown-item" value="{{$tag->id}}"
+                    <option value="{{$tag->id}}"
                     @if(isset($id_tag))
                         @if($id_tag == $tag->id)
                             selected
