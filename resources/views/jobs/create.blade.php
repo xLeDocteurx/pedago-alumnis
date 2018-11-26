@@ -109,31 +109,15 @@
                                 @endif
                             </div>
                         </div>
-                        
 
-                        <div class="form-group row px-4">
+                        <div class="form-group row">
                             <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags')}}</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group">
-                                    <div class="input-group my-4">
-                                    
-                                    @foreach($alltags as $tag)
-                                    
+                            <div class="input-group">
+                                @foreach($alltags as $tag)
                                     <input type="checkbox" name="tags[]" value="{{$tag->id}}"> {{$tag->name}}<br>
-                                        @endforeach    
-                                </div>
-                                </div>
-                        
-
-                        <!-- <div class="form-group row  px-4">
-                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Rôle(s)') }}</label>
-                            <select class="col-md-6 form-control{{ $errors->has('roles') ? ' is-invalid' : '' }}" id="roles" name="roles">
-                                <option value="3">Formateur</option>
-                                <option value="4">Professionnel</option>
-                                <option value="5" selected>Alumni</option>
-                                <option value="6">Apprenant</option>
-                            </select>
-                        </div> -->
+                                @endforeach    
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

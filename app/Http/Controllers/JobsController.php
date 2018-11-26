@@ -143,7 +143,6 @@ class JobsController extends Controller
         $alltagsid = $annonce->tags->pluck('id')->all();
         // dd($annonce->region());
         return view('jobs.update', compact('regions','annonce','today','nextYear','alltags','jobtagsuser','alltagsid'));
-        
     }
 
     public function storeUpdate(Request $request, $id)

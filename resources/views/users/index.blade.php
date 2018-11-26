@@ -17,6 +17,11 @@
                     <div class="card-header">
                         <img class="mx-auto rounded-circle" src="{{ asset($user->image_url) }}" alt="Avatar de l'utilisateur" style="max-width: 50px;">
                         <h4 class="mt-4 d-inline">{{$user->nom}} {{$user->prenom}}</h4>
+                    
+                        @foreach($user->tags as $tag)
+                            <span class="text-left badge p-2 badge-success">{{$tag->name}}</span>
+                        @endforeach   
+
                         @if($user->region)
                             <span class="text-left badge p-2 badge-secondary">{{$user->region->name}}</span>
                         @endif

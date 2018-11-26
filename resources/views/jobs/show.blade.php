@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <p class="my-4">{!! nl2br(e($annonce->content)) !!}</p> 
                         @foreach($annonce->tags as $tag)
-                            <span class="badge p-2 badge-primary"> {{$tag->name}}</span>
+                            <span class="badge p-2 badge-success"> {{$tag->name}}</span>
                         @endforeach
                         
                         <p class="text-right">Créé par 

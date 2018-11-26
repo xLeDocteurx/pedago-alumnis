@@ -10,6 +10,7 @@ use App\User;
 use App\Event;
 use App\Job;
 use App\Region;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +50,12 @@ class UsersController extends Controller
         $regions = Region::all();
         $roles = Role::all();
         $roles_ids = $user->roles->pluck('id')->all();
-        return view('users.update', compact('user', 'regions', 'roles', 'roles_ids'));
+
+        $alltags = Tag::all();
+        $usertags = $user->tags;
+        $alltagsid = $usertags->pluck('id')->all();
+
+        return view('users.update', compact('user', 'regions', 'roles', 'roles_ids', 'alltags', 'alltagsid', 'usertags'));
     }
 
     public function store(Request $request)
@@ -76,6 +82,8 @@ class UsersController extends Controller
 
         
         $user->roles()->sync($request->input('roles'));
+
+        $user->tags()->sync($request->input('tags'));
         // $events = $user->events()->whereDate('date', '>=', date('Y-m-d'))->get();
         // $myEvents = Event::where('author_id', $user->id)->get();
         return redirect()->route('users_show', $user->name);

@@ -117,23 +117,18 @@
                             </select>
                         </div> -->
 
-                        <div class="form-group row px-4">
+                        <div class="form-group row">
                             <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags')}}</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group">
-                                    <div class="input-group my-4">
-                                    
-                                    @foreach($alltags as $tag)
-                                    
+                            <div class="input-group">
+                                @foreach($alltags as $tag)
                                     <input type="checkbox" name="tags[]" value="{{$tag->id}}"
-                                    
                                     @if(in_array($tag->id, $alltagsid))
-                                    checked
+                                        checked
                                     @endif
-                                    > {{$tag->name}}<br>
-                                        @endforeach    
-                                </div>
-                                </div>
+                                    >{{$tag->name}}<br>
+                                @endforeach
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

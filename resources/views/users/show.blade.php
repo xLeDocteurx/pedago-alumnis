@@ -14,6 +14,10 @@
                             @if ($user->id === Auth::user()->id)
                                 <a class="btn btn-warning" href="{{ route('users_update', Auth::user()->id) }}" title="Editer le profil">Editer le profil</a>
                             @endif
+
+                            @foreach($user->tags as $tag)
+                                <span class="text-left badge p-2 badge-success">{{$tag->name}}</span>
+                            @endforeach   
                             <!-- <p class="text-right my-auto"> A {{$user->location}} le {{$user->date}}</p> -->
                     </div>
                     <div class="card-body">
